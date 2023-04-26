@@ -1,0 +1,87 @@
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  AlmacenamientoCitasService
+} from '../almacenamiento-citas.service';
+import {
+  Cita
+} from '../cita.model';
+
+import * as alertifyjs from 'alertifyjs';
+
+@Component({
+  selector: 'app-reservar-cita',
+  templateUrl: './reservar-cita.component.html',
+  styleUrls: ['./reservar-cita.component.css']
+})
+export class ReservarCitaComponent implements OnInit {
+  estadoFecha: boolean = false;
+  fecha: any;
+  fechaString: string | undefined;
+  nombre: string = "";
+  cita: Cita = {
+    id: 0,
+    year: 0,
+    mes: 0,
+    dia: 0,
+    hora: 0,
+    paciente: '',
+    diaNombre: '',
+    mesNombre: ''
+  };
+  citasFechaSeleccionada: Cita[] = [];
+  selectedOption: number = 0;
+  horas: any = [];
+  horasOcupadas: any = [];
+
+  constructor(private citasService: AlmacenamientoCitasService) {}
+
+  ngOnInit() {
+    this.cita = this.citasService.nuevaCita();
+  }
+
+  procesaPropagar(mensaje: any) {
+    this.fecha = mensaje;
+    this.estadoFecha = true;
+    this.fechaString = `${this.fecha.diaNombre} ${this.fecha.dia} de ${this.fecha.mesNombre} del ${this.fecha.year}`;
+    this.horas = [];
+    this.horasOcupadas = [];
+    // Al seleccionar una fecha, buscamos dentro del servicio las citas del mismo dia
+    this.citasFechaSeleccionada = this.citasService.getCitasFecha(this.fecha.dia, this.fecha.mes, this.fecha.year);
+    this.citasFechaSeleccionada.forEach((element: {
+      hora: any;
+    }) => {
+      this.horasOcupadas.push(element.hora);
+    });
+    if (this.horasOcupadas.length > 0) {
+      for (let i = 8; i < 20; i++) {
+        if (!this.horasOcupadas.includes(i)) {
+          this.horas.push(i);
+        }
+      }
+    } else {
+      for (let i = 8; i < 20; i++) {
+        this.horas.push(i);
+      }
+    }
+  }
+
+  reservarCita() {
+    this.cita.year = this.fecha.year;
+    this.cita.mes = this.fecha.mes;
+    this.cita.dia = this.fecha.dia;
+    this.cita.hora = this.horas[this.selectedOption];
+    this.cita.paciente = this.nombre;
+    this.cita.diaNombre = this.fecha.diaNombre;
+    this.cita.mesNombre = this.fecha.mesNombre;
+    this.citasService.agregarCita(this.cita);
+    this.cita = this.citasService.nuevaCita();
+    this.estadoFecha = false;
+    this.nombre = '';
+    alertifyjs.alert('Cita Reservada', 'Se ha almacenado tu reservacion en nuestro sistema', function () {
+      alertifyjs.success('Reservacion Exitosa');
+    });
+  }
+}

@@ -1,0 +1,65 @@
+<div class="container mt-3">
+  <h1 class="mt-3 mb-3">Reservar Cita</h1>
+  <div class="row g-3">
+    <div class="col-md-5">
+      <app-calendario (propagarFecha)="procesaPropagar($event)" [borrarEnfoque]="!estadoFecha"></app-calendario>
+      <div class="col-md-12 mt-3">
+        <div *ngIf="estadoFecha; then fecha"></div>
+      </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="row g-3 col-md-6">
+      <div class="col-md-12">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+      </div>
+      <div class="col-md-12">
+        <div *ngIf="estadoFecha; then fechaActiva; else seleccionaFecha"></div>
+      </div>
+      <div class="col-12">
+        <div *ngIf="nombre != '' && estadoFecha && horas.length; then botonReservar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #fecha>
+  <div class="alert alert-primary" role="alert">
+    <div *ngIf="nombre != ''; then mostrarNombre"></div>
+    <p>{{ fechaString }}</p>
+    <div *ngIf="horas.length; then mostrarhora"></div>
+  </div>
+</ng-template>
+
+<ng-template #fechaActiva>
+  <div *ngIf="horas.length; then horarios; else horariosNoDisponibles"></div>
+</ng-template>
+
+<ng-template #seleccionaFecha>
+  <div class="alert alert-warning" role="alert">
+    <p>Selecciona una Fecha</p>
+  </div>
+</ng-template>
+
+<ng-template #horarios>
+  <h5>Horarios Disponibles</h5>
+  <select id="select-menu" [(ngModel)]="selectedOption" class="form-select" required name="actionSelection">
+    <option *ngFor="let hora of horas; index as i" [value]="i"
+      [innerHTML]="hora + ':00 - ' + (hora + 1) + ':00'"></option>
+  </select>
+</ng-template>
+
+<ng-template #horariosNoDisponibles>
+  <div class="alert alert-danger" role="alert">
+    <p>Lo sentimos ya no hay citas disponibles para este dia</p>
+  </div>
+</ng-template>
+
+<ng-template #botonReservar>
+  <button class="btn btn-primary" (click)="reservarCita()">Reservar Cita</button>
+</ng-template>
+
+<ng-template #mostrarNombre><p>Reservacion para {{ nombre }}</p></ng-template>
+
+<ng-template #mostrarhora><p>{{ horas[selectedOption] }}:00 - {{ horas[selectedOption]+1 }}:00</p></ng-template>
