@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { createClient } from 'pexels';
 
 const client = createClient('NSOwiybbHUhhPPj930vyFB124JwsosjX8y21lngC7LSMSOwAoUqenIAk');
-const query = 'Doctor';
+const query = 'doctor';
 
 @Injectable({
   providedIn: 'root'
