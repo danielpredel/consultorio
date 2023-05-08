@@ -13,7 +13,7 @@ export class MedicosService {
 
   buscarFotos(): void{
 
-    client.photos.search({ query:query, size:"medium", per_page: 15 }).then(photos => {
+    client.photos.search({ query:query, size:"medium", per_page: 25 }).then(photos => {
       this.data = photos;
       this.data = this.data.photos;
       console.log(this.data);

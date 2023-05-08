@@ -9,13 +9,13 @@ import { MedicosService } from '../medicos.service';
 export class MasonryComponent implements OnInit{
   
   fotos:any;
-  
+
   constructor(private medicos: MedicosService){}
 
   ngOnInit(): void {
     this.medicos.buscarFotos();
     setTimeout(() => {
       this.fotos = this.medicos.getData();
-    }, 2000);
+    }, 1000);
   }
 }

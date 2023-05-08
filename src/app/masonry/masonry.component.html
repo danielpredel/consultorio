@@ -1,18 +1,179 @@
-<!--<div *ngIf="fotos!=null else espera">
-    <div class="card-columns">
-        <div *ngFor="let medico of fotos" class="card">
-          <img [src]="medico.src.original" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text">{{medico.alt}}</p>
-          </div>
-        </div>
+<div  class="row" data-masonry='{"percentPosition": true }'>
+  
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[0].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[0].photographer}}</h5>
+      <p class="card-text">{{fotos[0].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
     </div>
-</div>-->
+  </div>
 
-<ng-template #espera>
-    <button class="btn btn-primary" type="button" disabled>
-        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        Cargando...
-    </button>
-</ng-template> 
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[1].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{fotos[1].alt}}</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[2].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[2].photographer}}</h5>
+      <p class="card-text">{{fotos[2].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[3].src.original}}" class="rounded" alt="...">
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <figure class="figure">
+      <img src="{{fotos[4].src.original}}" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">{{fotos[4].alt}}</figcaption>
+    </figure>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[5].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[5].photographer}}</h5>
+      <p class="card-text">{{fotos[5].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[6].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{fotos[6].alt}}</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[7].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[7].photographer}}</h5>
+      <p class="card-text">{{fotos[7].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[8].src.original}}" class="rounded" alt="...">
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <figure class="figure">
+      <img src="{{fotos[9].src.original}}" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">{{fotos[9].alt}}</figcaption>
+    </figure>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[10].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[10].photographer}}</h5>
+      <p class="card-text">{{fotos[10].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[11].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{fotos[11].alt}}</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[12].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[12].photographer}}</h5>
+      <p class="card-text">{{fotos[12].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[13].src.original}}" class="rounded" alt="...">
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <figure class="figure">
+      <img src="{{fotos[14].src.original}}" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">{{fotos[14].alt}}</figcaption>
+    </figure>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[15].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[15].photographer}}</h5>
+      <p class="card-text">{{fotos[15].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[16].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{fotos[6].alt}}</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[17].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[17].photographer}}</h5>
+      <p class="card-text">{{fotos[17].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[18].src.original}}" class="rounded" alt="...">
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <figure class="figure">
+      <img src="{{fotos[19].src.original}}" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">{{fotos[19].alt}}</figcaption>
+    </figure>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[20].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[20].photographer}}</h5>
+      <p class="card-text">{{fotos[20].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[21].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">{{fotos[21].alt}}</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[22].src.original}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{fotos[22].photographer}}</h5>
+      <p class="card-text">{{fotos[22].alt}}</p>
+      <a [routerLink]="['/reservar-cita']" class="btn btn-primary">Reservar Cita</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{fotos[23].src.original}}" class="rounded" alt="...">
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <figure class="figure">
+      <img src="{{fotos[24].src.original}}" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">{{fotos[24].alt}}</figcaption>
+    </figure>
+  </div>
+</div>
