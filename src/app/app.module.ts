@@ -16,6 +16,8 @@ import {MatTableModule} from '@angular/material/table';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MedicosService } from './medicos.service';
 import { MasonryComponent } from './masonry/masonry.component';
+import { AboutComponent } from './about/about.component';
+import { DomseguroPipe } from './domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MasonryComponent } from './masonry/masonry.component';
     MenuComponent,
     InicioComponent,
     BuscadorComponent,
-    MasonryComponent
+    MasonryComponent,
+    AboutComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

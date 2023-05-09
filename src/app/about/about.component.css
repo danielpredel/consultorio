@@ -1,0 +1,25 @@
+#datos{
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+#colorTarjeta {
+    text-align: center;
+    background-color: #7dd5e3;
+}
+
+.titulo{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    text-align: center;
+    text-shadow: rgb(0, 0, 0) 2px 3px;
+}
+#texto{
+    color: rgb(5, 5, 5); 
+    font-size: 20px; 
+}
+#texto2{
+    color: rgb(5, 5, 5); 
+    font-size: 15px; 
+}

@@ -5,12 +5,14 @@ import { ReservarCitaComponent } from './reservaciones/reservar-cita/reservar-ci
 import { CitasReservadasComponent } from './reservaciones/citas-reservadas/citas-reservadas.component';
 import { MasonryComponent } from './masonry/masonry.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'reservar-cita', component: ReservarCitaComponent },
   { path: 'citas-reservadas', component: CitasReservadasComponent },
   { path : 'masonry', component: MasonryComponent},
+  { path : 'about', component: AboutComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
   
   { path: '**', pathMatch: 'full', redirectTo: '' }

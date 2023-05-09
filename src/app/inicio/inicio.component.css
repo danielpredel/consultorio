@@ -1,7 +1,4 @@
-body{
-    background: lightblue;
-    font-weight: bold;
-}
+
 .bor{
     border: 5px solid rgb(20, 21, 21);
 }
@@ -45,3 +42,9 @@ body{
     margin: 17px;
 }
 .imgopaca:hover {filter: opacity(.5);}
+
+#logo{
+    text-align: center;
+    background: rgb(162, 219, 238);
+    margin-left: 36px;
+}
