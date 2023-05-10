@@ -13,9 +13,9 @@ export class MasonryComponent implements OnInit{
   constructor(private medicos: MedicosService){}
 
   ngOnInit(): void {
-    this.medicos.buscarFotos();
+    this.medicos.buscarFotos('doctor',25);
     setTimeout(() => {
-      this.fotos = this.medicos.getData();
+      this.fotos = this.medicos.getFotos();
     }, 1000);
   }
 }

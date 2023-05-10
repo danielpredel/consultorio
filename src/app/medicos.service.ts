@@ -1,26 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { createClient } from 'pexels';
 
 const client = createClient('NSOwiybbHUhhPPj930vyFB124JwsosjX8y21lngC7LSMSOwAoUqenIAk');
-const query = 'doctor';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicosService {
 
-  data: any;
+  fotos: any;
+  myData: any;
 
-  buscarFotos(): void{
+  constructor(private http: HttpClient){}
 
-    client.photos.search({ query:query, size:"medium", per_page: 25 }).then(photos => {
-      this.data = photos;
-      this.data = this.data.photos;
-      console.log(this.data);
+  buscarFotos(query: string, cant: number): void{
+
+    client.photos.search({ query:query, size:"medium", per_page: cant }).then(photos => {
+      this.fotos = photos;
+      this.fotos = this.fotos.photos;
+      console.log(this.fotos);
     });
   }
 
-  getData(){
-    return this.data;
+  getFotos(){
+    return this.fotos;
+  }
+
+  buscarMedicinas(){
+    this.http.get('../../assets/medicamentos.json').subscribe(data => {
+      this.myData = data;
+    });
+  }
+
+  getMedicinas(){
+    return this.myData;
   }
 }

@@ -1,2 +1,5 @@
 <p>buscador works!</p>
-{{medicamento}}
+<div *ngIf="medicina">
+{{palabra}}
+{{buscarMedicina(palabra.toUpperCase())}}
+</div>

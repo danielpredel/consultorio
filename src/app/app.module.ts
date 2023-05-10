@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MedicosService } from './medicos.service';
 import { MasonryComponent } from './masonry/masonry.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MasonryComponent } from './masonry/masonry.component';
     MatInputModule,
     FormsModule,
     MatTableModule,
+    HttpClientModule
   ],
   providers: [MedicosService],
   bootstrap: [AppComponent]
