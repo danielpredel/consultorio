@@ -16,12 +16,9 @@ import {MatTableModule} from '@angular/material/table';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MedicosService } from './medicos.service';
 import { MasonryComponent } from './masonry/masonry.component';
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
-=======
 import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
->>>>>>> 22575480ed84cea3bc9308add77a925327e8808d
 
 @NgModule({
   declarations: [
