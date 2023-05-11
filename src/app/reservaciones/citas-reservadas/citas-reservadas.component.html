@@ -1,19 +1,19 @@
 <div class="container mt-3">
   <h1>Citas Reservadas</h1>
   <div *ngIf="!citas.length">No hay citas por el momento</div>
-  <table *ngIf="citas.length" class="table table-dark table-striped">
+  <table *ngIf="citas.length" class="table table-info table-striped">
     <thead>
       <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Hora</th>
+        <th id="color" scope="col">Nombre</th>
+        <th id="color" scope="col">Fecha</th>
+        <th id="color" scope="col">Hora</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let cita of citas">
-        <td>{{ cita.paciente }}</td>
-        <td>{{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}</td>
-        <td [innerHTML]="cita.hora + ':00 - ' + (cita.hora + 1) + ':00'"></td>
+        <td id="color">{{ cita.paciente }}</td>
+        <td id="color">{{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}</td>
+        <td id="color" [innerHTML]="cita.hora + ':00 - ' + (cita.hora + 1) + ':00'"></td>
       </tr>
     </tbody>
   </table>

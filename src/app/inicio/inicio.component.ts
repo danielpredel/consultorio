@@ -19,6 +19,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
+  video='jiCU7rgLOkY';
+  video2='_JDOGSkVMNY';
   displayedColumns: string[] = [ 'name', 'weight'];
   dataSource = ELEMENT_DATA;
   valida:boolean=false;
