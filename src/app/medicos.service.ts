@@ -13,7 +13,11 @@ export class MedicosService {
   fotos: any;
   myData: any;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){
+    this.http.get('../../assets/medicamentos.json').subscribe(data => {
+      this.myData = data;
+    });
+  }
 
   buscarFotos(query: string, cant: number): void{
 
@@ -26,12 +30,6 @@ export class MedicosService {
 
   getFotos(){
     return this.fotos;
-  }
-
-  buscarMedicinas(){
-    this.http.get('../../assets/medicamentos.json').subscribe(data => {
-      this.myData = data;
-    });
   }
 
   getMedicinas(){

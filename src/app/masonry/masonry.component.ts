@@ -16,6 +16,6 @@ export class MasonryComponent implements OnInit{
     this.medicos.buscarFotos('doctor',25);
     setTimeout(() => {
       this.fotos = this.medicos.getFotos();
-    }, 1000);
+    }, 1500);
   }
 }
