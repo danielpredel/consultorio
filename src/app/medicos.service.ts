@@ -14,7 +14,7 @@ export class MedicosService {
   myData: any;
 
   constructor(private http: HttpClient){
-    this.http.get('../../assets/medicamentos.json').subscribe(data => {
+    this.http.get('assets/medicamentos.json').subscribe(data => {
       this.myData = data;
     });
   }
