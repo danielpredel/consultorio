@@ -9,6 +9,7 @@ import { MedicosService } from '../medicos.service';
 export class MasonryComponent implements OnInit{
   
   fotos:any;
+  aparece:boolean = false;
 
   constructor(private medicos: MedicosService){}
 
@@ -16,6 +17,7 @@ export class MasonryComponent implements OnInit{
     this.medicos.buscarFotos('doctor',25);
     setTimeout(() => {
       this.fotos = this.medicos.getFotos();
+      this.aparece = true;
     }, 1500);
   }
 }
