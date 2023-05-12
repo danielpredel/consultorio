@@ -108,7 +108,7 @@ export class CalendarioComponent implements OnInit, OnChanges {
   }
 
   clickDay(day: any) {
-    if (!(this.daySelect.year() == this.fechaActual.getFullYear() && this.daySelect.month() == this.fechaActual.getMonth() && day.value < this.fechaActual.getDate())) {
+    if (!(this.daySelect.year() == this.fechaActual.getFullYear() && this.daySelect.month() == this.fechaActual.getMonth() && day.value <= this.fechaActual.getDate())) {
       if (!this.estadoSeleccion) {
         this.estadoSeleccion = true;
       } else {
