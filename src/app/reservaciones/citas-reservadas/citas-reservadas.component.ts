@@ -14,5 +14,7 @@ export class CitasReservadasComponent  implements OnInit {
 
   ngOnInit() {
     this.citas = this.citasService.getCitas();
+    // console.log(this.citas);
   }
+
 }
