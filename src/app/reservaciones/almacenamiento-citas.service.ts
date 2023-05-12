@@ -31,7 +31,8 @@ export class AlmacenamientoCitasService {
       hora: 0,
       paciente: '',
       diaNombre: '',
-      mesNombre: ''
+      mesNombre: '',
+      edad: 0
     };
   }
 

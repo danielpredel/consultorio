@@ -6,6 +6,7 @@
       <tr>
         <th id="color" scope="col">ID Cita</th>
         <th id="color" scope="col">Nombre</th>
+        <th id="color" scope="col">Edad</th>
         <th id="color" scope="col">Fecha</th>
         <th id="color" scope="col">Hora</th>
       </tr>
@@ -14,6 +15,7 @@
       <tr *ngFor="let cita of citas">
         <td id="color">{{ cita.id }}</td>
         <td id="color">{{ cita.paciente }}</td>
+        <td id="color">{{ cita.edad }}</td>
         <td id="color">{{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}</td>
         <td id="color" [innerHTML]="cita.hora + ':00 - ' + (cita.hora + 1) + ':00'"></td>
       </tr>
