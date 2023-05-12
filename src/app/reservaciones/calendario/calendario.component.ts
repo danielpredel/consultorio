@@ -80,7 +80,7 @@ export class CalendarioComponent implements OnInit, OnChanges {
       let clase: string = '';
       const dayObject = moment(`${year}-${month}-${a}`);
       if (dayObject.year() == this.fechaActual.getFullYear() && dayObject.month() == this.fechaActual.getMonth() &&
-        a < this.fechaActual.getDate()) { // Dia pasado
+        a <= this.fechaActual.getDate()) { // Dia pasado
         clase = 'dia-pasado';
       }
       return {
