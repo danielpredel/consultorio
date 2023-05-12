@@ -1,0 +1,131 @@
+.contenedor{
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+.contacto{
+    color: white;
+}
+.titredes{
+    text-align: center;
+    color: white;
+}
+.iconos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+
+.imageconsul{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+ 
+.imageconsul > div,
+.imageconsul .img,
+.imageconsul .titcon{
+    text-align: center;
+    color: white;
+}
+
+.menu{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+
+.menu > div,
+.menu .inicio,
+.menu .reservar,
+.menu .citas,
+.menu .masonry,
+.menu .acerca{
+    color: white;
+}
+
+.horario{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+}
+
+.horario > div,
+.horario .tithorario,
+.horario .texthorario,
+.horario .texthorario2{
+    color: white;
+}
+
+.iconos > div,
+.iconos .facebook,
+.iconos .instagram,
+.iconos .twitter{
+    text-align: center;
+    color: white;
+}
+
+.enlacemenu{
+    color: white;
+}
+
+.enlaces{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+.enlaces > div,
+.enlaces .envio,
+.enlaces .pregunta,
+.enlaces .metodo,
+.enlaces .politica{
+    text-align: center;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .contenedor .contacto{
+        grid-column: 1 /-1;
+    }
+    .contenedor .redes{
+        grid-column: 1 / -1;
+    }
+    .contenedor .menu{
+        grid-column: 1 / -1;
+    }
+    .contenedor .horario{
+        grid-column: 1 / -1;
+    }
+    .contenedor .imageconsul{
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 570px){
+    .iconos .facebook{
+        grid-column: 1 / -1;
+    }
+    .iconos .instagram{
+        grid-column: 1 / -1;
+    }
+    .iconos .twitter{
+        grid-column: 1 / -1;
+    }
+}
+@media screen and (max-width: 570px){
+    .contenedor .contacto{
+        text-align: center;
+    }
+    .contenedor .menu{
+        text-align: center;
+    }
+    .contenedor .horario{
+        text-align: center;
+    }
+    .contenedor .imageconsul{
+        text-align: center;
+    }
+}

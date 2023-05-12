@@ -19,6 +19,7 @@ import { MasonryComponent } from './masonry/masonry.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DomseguroPipe } from './domseguro.pipe';
     BuscadorComponent,
     MasonryComponent,
     AboutComponent,
-    DomseguroPipe
+    DomseguroPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
