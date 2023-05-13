@@ -23,7 +23,7 @@ export class BuscadorComponent implements OnInit,DoCheck {
       this.medicinas = this.servicio.getMedicinas();
       this.fotos = this.servicio.getFotos();
       this.existeFoto = true;
-    },2000);
+    },1000);
   }
 
   ngOnInit(){
@@ -31,7 +31,9 @@ export class BuscadorComponent implements OnInit,DoCheck {
   }
 
   ngDoCheck() {
-    this.buscarMedicina(this.palabra.toUpperCase());
+    if(this.medicinas){
+      this.buscarMedicina(this.palabra.toUpperCase());
+    }
   }
 
   buscarMedicina(buscar: string){
