@@ -35,19 +35,22 @@ export class BuscadorComponent implements OnInit,DoCheck {
   }
 
   buscarMedicina(buscar: string){
+    
     // Buscar Medicina en el arreglo de medicinas
-    for (const i of this.medicinas){
-      if(i.nombre == buscar){
-        this.medicina = i;
-        this.existeMedicina = true;
-        break;
-      }else{
-        this.existeMedicina = false;
-      }   
-    }    
-
-    this.rand = Math.floor(Math.random() * 34) + 0;
-    this.precio = Math.floor(Math.random() * 79) + 29;
+    if(this.medicinas){
+      for (const i of this.medicinas){
+        if(i.nombre == buscar){
+          this.medicina = i;
+          this.existeMedicina = true;
+          break;
+        }else{
+          this.existeMedicina = false;
+        }   
+      } 
+    
+      this.rand = Math.floor(Math.random() * 34) + 0;
+      this.precio = Math.floor(Math.random() * 79) + 29;
+    }
   }
 }
 
