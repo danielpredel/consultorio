@@ -24,7 +24,7 @@ export class MedicosService {
     client.photos.search({ query:query, size:"medium", per_page: cant }).then(photos => {
       this.fotos = photos;
       this.fotos = this.fotos.photos;
-      console.log(this.fotos);
+      // console.log(this.fotos);
     });
   }
 
