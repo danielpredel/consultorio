@@ -21,6 +21,7 @@ export class ReservarCitaComponent implements OnInit {
   fecha: any;
   fechaString: string | undefined;
   nombre: string = "";
+  edad: number = 0;
   cita: Cita = {
     id: 0,
     year: 0,
@@ -29,7 +30,8 @@ export class ReservarCitaComponent implements OnInit {
     hora: 0,
     paciente: '',
     diaNombre: '',
-    mesNombre: ''
+    mesNombre: '',
+    edad: 0
   };
   citasFechaSeleccionada: Cita[] = [];
   selectedOption: number = 0;
@@ -69,6 +71,7 @@ export class ReservarCitaComponent implements OnInit {
   }
 
   reservarCita() {
+    // console.log(this.edad);
     this.cita.year = this.fecha.year;
     this.cita.mes = this.fecha.mes;
     this.cita.dia = this.fecha.dia;
@@ -76,6 +79,7 @@ export class ReservarCitaComponent implements OnInit {
     this.cita.paciente = this.nombre;
     this.cita.diaNombre = this.fecha.diaNombre;
     this.cita.mesNombre = this.fecha.mesNombre;
+    this.cita.edad = this.edad;
     this.citasService.agregarCita(this.cita);
     this.cita = this.citasService.nuevaCita();
     this.estadoFecha = false;

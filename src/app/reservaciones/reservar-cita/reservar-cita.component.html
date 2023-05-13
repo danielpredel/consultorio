@@ -10,15 +10,19 @@
     <div class="col-md-1">
     </div>
     <div class="row g-3 col-md-6">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+      </div>
+      <div class="col-md-4">
+        <label for="edad" class="form-label">Edad</label>
+        <input type="number" class="form-control" id="edad" [(ngModel)]="edad" required min="0">
       </div>
       <div class="col-md-12">
         <div *ngIf="estadoFecha; then fechaActiva; else seleccionaFecha"></div>
       </div>
       <div class="col-12">
-        <div *ngIf="nombre != '' && estadoFecha && horas.length; then botonReservar"></div>
+        <div *ngIf="nombre != '' && estadoFecha && horas.length && edad!=null; then botonReservar"></div>
       </div>
     </div>
   </div>

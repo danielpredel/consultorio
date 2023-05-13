@@ -6,5 +6,6 @@ export interface Cita {
     hora: number,
     paciente: string,
     diaNombre: string,
-    mesNombre: string
+    mesNombre: string,
+    edad: number
 }

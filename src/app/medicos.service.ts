@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { createClient } from 'pexels';
 
-const client = createClient('NSOwiybbHUhhPPj930vyFB124JwsosjX8y21lngC7LSMSOwAoUqenIAk');
+const client = createClient('EDGR1aoC0GY0i96NC0W97bUqsozOrXpi5WU2cuwEjRL2CiRxhMVKqNeo');
 
 
 @Injectable({
@@ -14,7 +14,7 @@ export class MedicosService {
   myData: any;
 
   constructor(private http: HttpClient){
-    this.http.get('../../assets/medicamentos.json').subscribe(data => {
+    this.http.get('assets/medicamentos.json').subscribe(data => {
       this.myData = data;
     });
   }
