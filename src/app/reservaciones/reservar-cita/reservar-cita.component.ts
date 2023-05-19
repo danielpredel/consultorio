@@ -71,7 +71,7 @@ export class ReservarCitaComponent implements OnInit {
   }
 
   reservarCita() {
-    // console.log(this.edad);
+    console.log(this.edad);
     this.cita.year = this.fecha.year;
     this.cita.mes = this.fecha.mes;
     this.cita.dia = this.fecha.dia;

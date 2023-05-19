@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { HelpComponent } from './accesibilidad/help/help.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { FooterComponent } from './footer/footer.component';
     MasonryComponent,
     AboutComponent,
     DomseguroPipe,
-    FooterComponent
+    FooterComponent,
+    HelpComponent,
+    
   ],
   imports: [
     BrowserModule,
