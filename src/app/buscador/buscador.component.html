@@ -1,20 +1,19 @@
 <div id="contenedor" style="min-height: 500px;">
-  <div *ngIf="existeMedicina; else noResultado"></div>
-</div>
-
-<ng-template #existeMedicina>
-  <div class="card" style="width: 18rem;">
-    <div *ngIf="existeFoto">
-      <img src="{{ fotos[rand].src.original }}" class="card-img-top" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ medicina.nombre }}</h5>
-      <p class="card-text">Medicina elaborada en el laboratorio <b>{{ medicina.laboratorio }}</b></p>
-      <p class="card-text">Precio: $ <b>{{ precio }}</b></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div *ngIf="existeMedicina else noResultado">
+    <div class="card" style="width: 18rem;">
+      <div *ngIf="existeFoto">
+        <img src="{{ fotos[rand].src.original }}" class="card-img-top" alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ medicina.nombre }}</h5>
+        <p class="card-text">Medicina elaborada en el laboratorio <b>{{ medicina.laboratorio }}</b></p>
+        <p class="card-text">Precio: $ <b>{{ precio }}</b></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
   </div>
-</ng-template>
+</div>
+
 <ng-template #noResultado>
   <div class="alert alert-primary" role="alert">
     No se encontraron resulatos del medicamento <b>{{ palabra }} </b>
