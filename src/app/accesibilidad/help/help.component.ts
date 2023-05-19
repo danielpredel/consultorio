@@ -16,6 +16,7 @@ export class HelpComponent {
     Bgris:boolean=false;
     fontSize:number=0;
     valor:number=1;
+    contras:boolean= false;
     constructor(){
     }
      getFontSize = () =>{
@@ -159,7 +160,20 @@ export class HelpComponent {
         return new Promise((resolve)=>setTimeout(resolve,seconds*1000))
     }    
    
-    
+    contraste(){
+      if(!this.contras){
+        document.documentElement
+        .style.setProperty('filter', 'invert(1)');
+        console.log("hoa");
+        this.contras=true;
+       }else{
+        document.documentElement
+        .style.setProperty('filter', 'invert(0)');
+        console.log("hoa");
+        this.contras=false;
+       }
+    }
+
     
     
 }
