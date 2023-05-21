@@ -14,6 +14,7 @@ export class HelpComponent {
     Bcon:boolean=false;
     Bleer:boolean=false;
     Bpausa:boolean=false;
+    Bmaouse:boolean=false;
     eti:string="p,i,mat-card-title,mat-card-subtitle,mat-card-content,card-title,h1,h2,h3,h4,h5,h6,span,a,th,td,label";
    Recalca(color:any,etiqueta:string,que:string){
     this.agarra=document.querySelectorAll(etiqueta);
@@ -135,6 +136,23 @@ export class HelpComponent {
       this.Bpausa=false;
       speechSynthesis.resume();
       
+    }
+  }
+  Agrandar(){
+    if(this.Bmaouse){
+      this.agarra = document.querySelectorAll("body,a,button,iframe");
+      for(this.i=0;this.i<this.agarra.length;this.i++){
+        this.agarra[this.i].classList.remove("cursor-big");
+      }
+      
+      this.Bmaouse=false;
+    }else{
+      this.agarra = document.querySelectorAll("body,a,button,iframe");
+      for(this.i=0;this.i<this.agarra.length;this.i++){
+        this.agarra[this.i].classList.add("cursor-big");
+      }
+      
+      this.Bmaouse=true;
     }
   }
 }
