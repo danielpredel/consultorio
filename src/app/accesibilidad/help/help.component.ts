@@ -1,165 +1,140 @@
 import { Component } from '@angular/core';
 import swal  from 'sweetalert';
-import * as alertifyjs from 'alertifyjs';
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
   styleUrls: ['./help.component.css']
 })
 export class HelpComponent {
+    Bresaltar:boolean=false;
     agarra:any;
     i:number=0;
-    tiempo:number=0;
-    letras:number=0;
-    Bresaltar:boolean=false;
-    Bleer:boolean=false;
+    aux:any;
     Bgris:boolean=false;
-    fontSize:number=0;
-    valor:number=1;
-    constructor(){
-    }
-     getFontSize = () =>{
-      return getComputedStyle(document.documentElement).getPropertyValue('font-size');
-
-     }
-    
-     cambio(){
-      //document.documentElement
-      //.style.setProperty('font-family',"Georgia, 'Times New Roman', Times, serif");
-       //console.log(getComputedStyle(document.documentElement).getPropertyValue('font-family'));
-       //document.documentElement
-       //.style.setProperty('background', `gray`)
-       //document.documentElement.style.fontFamily = "Impact,Charcoal,sans-serif";
-       if(!this.Bgris){
-        document.documentElement
-        .style.setProperty('filter', 'grayscale(1)');
-        console.log("hoa");
-        this.Bgris=true;
-       }else{
-        document.documentElement
-        .style.setProperty('filter', 'grayscale(0)');
-        console.log("hoa");
-        this.Bgris=false;
-       }
-       
-
-     }
-      
-
-    Gletra(){
-       this.fontSize =parseInt( this.getFontSize());
-      // aumentamos el valor de esa variable en 1.1
-      console.log(this.fontSize);
-      this.fontSize+=this.valor;
-      document.documentElement
-      .style.setProperty('font-size', `${this.fontSize}px`);
-      console.log(this.fontSize);
-    }
-    Pletra(){
-      this.fontSize =parseInt( this.getFontSize());
-      // aumentamos el valor de esa variable en 1.1
-      console.log(this.fontSize);
-      this.fontSize-=this.valor;
-      document.documentElement
-      .style.setProperty('font-size', `${this.fontSize}px`)
-      console.log(this.fontSize);
-    }
-    Resaltar(){ 
-      if(!this.Bresaltar){
-        swal("¿Que deseas resaltar?", {
-          buttons: {
-            Cancel:{
-              text: "Links",
-              value: "defeat"
-            },
-            catch: {
-              text: "Titulos",
-              value: "catch",
-            },
-            defeat:{
-              text: "Botones",
-              value: "parra",
-            }
-          },
-        })
-        .then((value) => {
-          switch (value) {
-            case "defeat":
-              this.Resaltador("a");
-              swal("Links", "Se resaltaron los links", "success");
-              break;
-            case "catch":
-              this.Resaltador("h1,h2,h3,h4,h5,h6, .titulo, .subtitulo, mat-card-title");
-              swal("Titulos!", "Se resaltaron los titulos", "success");
-              break;
-              case "parra":
-                this.Resaltador("button, .boton, .btn-info");
-                swal("Botones!", "Se resaltaron los botones", "success");
-                break;
-          }
-        });
-        this.Bresaltar=true;
+    Bcon:boolean=false;
+    Bleer:boolean=false;
+    Bpausa:boolean=false;
+    eti:string="p,i,mat-card-title,mat-card-subtitle,mat-card-content,card-title,h1,h2,h3,h4,h5,h6,span,a,th,td,label";
+   Recalca(color:any,etiqueta:string,que:string){
+    this.agarra=document.querySelectorAll(etiqueta);
+    for(this.i=0;this.i<this.agarra.length;this.i++){
+      if(etiqueta!="img"){
+        this.agarra[this.i].style.background=color;
       }else{
-        this.Antiresal();
+        this.agarra[this.i].style.filter="opacity(.4) drop-shadow(0 0 0 "+color+")";
       }
-        
+      console.log(this.agarra[this.i]);
     }
-    Resaltador(etiqueta:string){
-        this.agarra=document.querySelectorAll(etiqueta);
-        for(this.i=0;this.i<this.agarra.length;this.i++){
-          this.agarra[this.i].style.background="rgb(56, 68, 179)";
-        }
-    }
-    Antiresal(){
+    swal(que+"!!", "Se resaltaron los "+que, "success");
+    this.Bresaltar=true;
+   }
+   quitare(){
       this.agarra=document.querySelectorAll("button, .boton, .btn-info,h1,h2,h3,h4,h5,h6, .titulo, .subtitulo, mat-card-title,a");
-        for(this.i=0;this.i<this.agarra.length;this.i++){
-          this.agarra[this.i].style.removeProperty("background");
-        }
-       this.Bresaltar=false;
-    }
-    colores(){
-      if(!this.Bleer){
-        this.Bleer=true;
-        this.leer();
-      }else{
-        this.Bleer=false;
-        speechSynthesis.cancel();
-
-      }
-     
-      
+      for(this.i=0;this.i<this.agarra.length;this.i++){
         
-
+        this.agarra[this.i].style.removeProperty("background");
+      }
+      this.agarra=document.querySelectorAll("img");
+      for(this.i=0;this.i<this.agarra.length;this.i++){
+        this.agarra[this.i].style.removeProperty("filter");
+      }
+      this.Bresaltar=false;
+   }
+   texto(au:string, px:string){
+    let pxn:number=0,fontsize=0,iaux=0;
+    if(px==""||px==null){
+      swal("Upss!!", "Al parecer no seleccionaste pixeles tomare 1px", "warning");
+      pxn=1;
+    }else{
+      pxn=parseInt(px);
     }
-    leer(){
-      console.log("hola");
-      this.agarra=document.querySelectorAll('p,i,mat-card-title,mat-card-subtitle,mat-card-content,card-title,h1,h2,h3,h4,h5,h6');
-     
-      setTimeout(async () => {
-        for(this.i=0;this.i<this.agarra.length;this.i++){
-          console.log(this.agarra[this.i].innerHTML);
-          
-          this.agarra[this.i].style.background="rgb(56, 68, 179)";
-          speechSynthesis.speak(new SpeechSynthesisUtterance(this.agarra[this.i].innerHTML));
-          /*if(speechSynthesis.speaking){
-            this.sleep(1);
-          }*/
-          while(speechSynthesis.speaking){
-            await this.sleep(3);
-            console.log("habla");
-          }
-          this.agarra[this.i].style.removeProperty("background");
-          if(!this.Bleer){
-            break;
-          }
+    this.agarra=document.querySelectorAll(this.eti);
+    for(this.i=0;this.i<this.agarra.length;this.i++){
+      if(this.agarra[this.i].innerHTML!=""&&this.agarra[this.i].innerHTML!=null){
+        console.log(this.i+" esto: "+this.agarra[this.i]);
+        fontsize=parseInt(getComputedStyle(this.agarra[this.i]).getPropertyValue('font-size'));
+        console.log("antes: "+fontsize);
+        if(au=="A"){
+          fontsize+=pxn;
+        }else{
+          fontsize-=pxn;
         }
-        },0);
+        console.log("Despues: "+fontsize);
+        this.agarra[this.i].style.setProperty('font-size', `${fontsize}px`);
+      }
     }
-    async sleep(seconds:number){
-        return new Promise((resolve)=>setTimeout(resolve,seconds*1000))
-    }    
-   
+   }
+   cambio(){
+     if(!this.Bgris){
+      document.documentElement
+      .style.setProperty('filter', 'grayscale(1)');
+      console.log("hoa");
+      this.Bgris=true;
+     }else{
+      document.documentElement
+      .style.setProperty('filter', 'grayscale(0)');
+      console.log("hoa");
+      this.Bgris=false;
+     }
+   }
+   contraste(){
+    if(!this.Bcon){
+      document.documentElement
+      .style.setProperty('filter', 'invert(1)');
+      console.log("hoa");
+      this.Bcon=true;
+     }else{
+      document.documentElement
+      .style.setProperty('filter', 'invert(0)');
+      console.log("hoa");
+      this.Bcon=false;
+     }
+   }
+   colores(col:any){
     
+      this.Bleer=true;
+      this.leer(col);
     
-    
+  }
+   leer(col:any){
+    this.agarra=document.querySelectorAll('p,i,.card-text,mat-card-title,mat-card-subtitle,mat-card-content,card-title,h2,h3,h4,h5,h6');
+    setTimeout(async () => {
+      for(this.i=0;this.i<this.agarra.length;this.i++){
+        console.log(this.agarra[this.i].innerHTML);
+       
+        speechSynthesis.speak(new SpeechSynthesisUtterance(this.agarra[this.i].innerHTML));
+        
+        while(speechSynthesis.speaking  ){
+          this.agarra[this.i].style.background=col;  
+          if(this.Bpausa){
+            this.agarra[this.i].style.removeProperty("background");
+          }
+          await this.sleep(1);
+        }
+        this.agarra[this.i].style.removeProperty("background");
+        if(!this.Bleer ){
+          break;
+        }
+      }
+      },0);
+  }
+  async sleep(seconds:number){
+      return new Promise((resolve)=>setTimeout(resolve,seconds*1000));
+  }    
+  cancelarl(){
+    this.Bleer=false;
+    speechSynthesis.cancel();
+  }
+  verpr(){
+    if(!this.Bpausa){
+      console.log("pausar");
+      this.Bpausa=true;
+      speechSynthesis.pause();
+    }else{
+      console.log("reaundar");
+      this.Bpausa=false;
+      speechSynthesis.resume();
+      
+    }
+  }
 }
