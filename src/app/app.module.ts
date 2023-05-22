@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { MedicamentosService } from './medicamentos.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { FooterComponent } from './footer/footer.component';
     MatTableModule,
     HttpClientModule
   ],
-  providers: [MedicosService],
+  providers: [MedicosService, MedicamentosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

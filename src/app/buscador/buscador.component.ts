@@ -1,6 +1,7 @@
 import { Component, OnInit,DoCheck,} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MedicosService } from '../medicos.service';
+import { MedicamentosService } from '../medicamentos.service';
 
 @Component({
   selector: 'app-buscador',
@@ -17,7 +18,7 @@ export class BuscadorComponent implements OnInit,DoCheck {
   rand:number=0;
   precio:number = 0;
  
-  constructor(private route:ActivatedRoute, private servicio: MedicosService){
+  constructor(private route:ActivatedRoute, private servicio: MedicamentosService){
     this.servicio.buscarFotos('medicines',35);
     setTimeout(()=>{
       this.medicinas = this.servicio.getMedicinas();

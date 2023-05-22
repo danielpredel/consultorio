@@ -1,23 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { MedicosService } from '../medicos.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  MedicosService
+} from '../medicos.service';
+import {
+  HttpErrorResponse
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-masonry',
   templateUrl: './masonry.component.html',
   styleUrls: ['./masonry.component.css']
 })
-export class MasonryComponent implements OnInit{
-  
-  fotos:any;
-  aparece:boolean = false;
+export class MasonryComponent implements OnInit {
+  medicos: any = [];
+  estado = false;
 
-  constructor(private medicos: MedicosService){}
+  constructor(private medicosService: MedicosService) {}
 
-  ngOnInit(): void {
-    this.medicos.buscarFotos('doctor',25);
-    setTimeout(() => {
-      this.fotos = this.medicos.getFotos();
-      this.aparece = true;
-    }, 1500);
+  ngOnInit(){
+    this.medicosService.retornarDatos().subscribe(
+      (result: any) => {
+        this.medicos = result;
+        console.log(this.medicos);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log("Client-side error");
+        } else {
+          console.log("Server-side error");
+        }
+      })
   }
+
 }

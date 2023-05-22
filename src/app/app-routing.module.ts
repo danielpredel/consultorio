@@ -11,10 +11,9 @@ const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'reservar-cita', component: ReservarCitaComponent },
   { path: 'citas-reservadas', component: CitasReservadasComponent },
-  { path : 'masonry', component: MasonryComponent},
-  { path : 'about', component: AboutComponent},
+  { path: 'masonry', component: MasonryComponent},
+  { path: 'about', component: AboutComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
-  
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
