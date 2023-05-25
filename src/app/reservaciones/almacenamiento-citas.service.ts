@@ -1,24 +1,36 @@
 import {
-  Injectable
+  Injectable, OnInit
 } from '@angular/core';
 import { Cita } from './cita.model';
+import { FirebaseReservaService } from './firebase-reserva.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlmacenamientoCitasService {
+export class AlmacenamientoCitasService   {
   private citas: Cita[] = [];
 
-  constructor() {
-    this.citas = JSON.parse(localStorage.getItem('citas') || '[]');
+  constructor(private guadarfire:FirebaseReservaService) {
+    //this.citas = JSON.parse(localStorage.getItem('citas') || '[]');
+    this.guadarfire.cargarCita().subscribe(citas=>{
+      console.log(citas);
+      this.citas=Object.values(citas);
+    })
+    console.log("hola");
   }
-
+  
   getCitas() {
+    
     return this.citas;
   }
+  //observable para operaciones asincronas
+ /* obtenercita(){
+    return this.guadarfire.cargarCita();
+  }*/
 
   agregarCita(cita: Cita) {
     this.citas.push(cita);
+    this.guadarfire.guardarCitas(this.citas);
     localStorage.setItem('citas', JSON.stringify(this.citas));
   }
   

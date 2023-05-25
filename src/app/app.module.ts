@@ -22,6 +22,9 @@ import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { FooterComponent } from './footer/footer.component';
 import { HelpComponent } from './accesibilidad/help/help.component';
+import { LoginComponent } from './login/login.component';
+import { LoginServiceService } from './login-service.service';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { HelpComponent } from './accesibilidad/help/help.component';
     DomseguroPipe,
     FooterComponent,
     HelpComponent,
+    LoginComponent,
+ 
     
   ],
   imports: [
@@ -49,7 +54,7 @@ import { HelpComponent } from './accesibilidad/help/help.component';
     MatTableModule,
     HttpClientModule
   ],
-  providers: [MedicosService],
+  providers: [MedicosService,LoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

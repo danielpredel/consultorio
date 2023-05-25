@@ -1,0 +1,14 @@
+.conte{
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+   
+}
+.formlogin{
+    padding: 10px;
+    background: rgb(22, 164, 177);
+}
+.input{
+    padding: 5px;
+
+}
