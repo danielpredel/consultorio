@@ -24,6 +24,7 @@ export class MasonryComponent implements OnInit {
     this.medicosService.retornarDatos().subscribe(
       (result: any) => {
         this.medicos = result;
+        this.estado = true;
         console.log(this.medicos);
       },
       (err: HttpErrorResponse) => {

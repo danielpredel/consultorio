@@ -1,21 +1,37 @@
-<div id="contenedor" style="min-height: 500px;">
-  <div *ngIf="existeMedicina else noResultado">
-    <div class="card" style="width: 18rem;">
-      <div *ngIf="existeFoto">
-        <img src="{{ fotos[rand].src.original }}" class="card-img-top" alt="...">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ medicina.nombre }}</h5>
-        <p class="card-text">Medicina elaborada en el laboratorio <b>{{ medicina.laboratorio }}</b></p>
-        <p class="card-text">Precio: $ <b>{{ precio }}</b></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<!-- <div id="contenedor"> -->
+<div class="container">
+  <div *ngIf="estado else cargando">
+    <div *ngIf="existencia else noResultado">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ medicina.foto }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ medicina.nombre }}</h5>
+              <p class="card-text">{{ medicina.descripcion }}</p>
+              <p class="card-text"> <b>Precio:</b> ${{ medicina.precio }}</p>
+              <p class="card-text"><small class="text-muted">Laboratorio {{ medicina.laboratorio }}</small></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <ng-template #noResultado>
-  <div class="alert alert-primary" role="alert">
-    No se encontraron resulatos del medicamento <b>{{ palabra }} </b>
+  <div class="alert alert-danger " role="alert">
+    No se encontraron resultados del medicamento <b>{{ busqueda }} </b>
+  </div>
+</ng-template>
+
+<ng-template #cargando>
+  <div id="divBtn">
+    <button id="btn" class="btn btn-primary" type="button" disabled>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      Cargando...
+    </button>
   </div>
 </ng-template>

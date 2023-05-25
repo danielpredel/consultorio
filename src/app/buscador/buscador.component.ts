@@ -1,58 +1,63 @@
-import { Component, OnInit,DoCheck,} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MedicosService } from '../medicos.service';
-import { MedicamentosService } from '../medicamentos.service';
+import {
+  Component,
+  DoCheck,
+  OnInit
+} from '@angular/core';
+import {
+  ActivatedRoute
+} from '@angular/router';
+import {
+  MedicamentosService
+} from '../medicamentos.service';
+import {
+  HttpErrorResponse
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.css'],
 })
-export class BuscadorComponent implements OnInit,DoCheck {
-  palabra: string="";
+export class BuscadorComponent implements OnInit, DoCheck {
   medicina: any;
-  medicinas:any;
-  existeMedicina:boolean = false;
-  existeFoto:boolean = false;
-  fotos:any;
-  rand:number=0;
-  precio:number = 0;
- 
-  constructor(private route:ActivatedRoute, private servicio: MedicamentosService){
-    this.servicio.buscarFotos('medicines',35);
-    setTimeout(()=>{
-      this.medicinas = this.servicio.getMedicinas();
-      this.fotos = this.servicio.getFotos();
-      this.existeFoto = true;
-    },2000);
-  }
+  estado = false;
+  existencia = false;
+  busqueda: string = '';
+  busquedaAnterior = '';
 
-  ngOnInit(){
-    this.route.params.subscribe(params=>{this.palabra=params['buscar']});
+  constructor(private route: ActivatedRoute, private medicamentosService: MedicamentosService) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.busqueda = params['buscar']
+    });
   }
 
   ngDoCheck() {
-    this.buscarMedicina(this.palabra.toUpperCase());
-  }
-
-  buscarMedicina(buscar: string){
-    
-    // Buscar Medicina en el arreglo de medicinas
-    if(this.medicinas){
-      for (const i of this.medicinas){
-        if(i.nombre == buscar){
-          this.medicina = i;
-          this.existeMedicina = true;
-          break;
-        }else{
-          this.existeMedicina = false;
-        }   
-      } 
-    
-      this.rand = Math.floor(Math.random() * 34) + 0;
-      this.precio = Math.floor(Math.random() * 79) + 29;
+    if (this.busqueda != this.busquedaAnterior) {
+      this.buscarMedicina(this.busqueda);
     }
   }
+
+  buscarMedicina(buscar: string) {
+    this.medicamentosService.retornarDatos(buscar).subscribe(
+      (result: any) => {
+        console.log(result);
+        this.busquedaAnterior = this.busqueda;
+        this.estado = true;
+        if (result == null) {
+          this.existencia = false;
+        } else {
+          this.medicina = result;
+          this.existencia = true;
+        }
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log("Client-side error");
+        } else {
+          console.log("Server-side error");
+        }
+      })
+  }
 }
-
-

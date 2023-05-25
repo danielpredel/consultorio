@@ -4,11 +4,6 @@ import {
 import {
   Injectable
 } from '@angular/core';
-// import {
-//   createClient
-// } from 'pexels';
-
-// const client = createClient('EDGR1aoC0GY0i96NC0W97bUqsozOrXpi5WU2cuwEjRL2CiRxhMVKqNeo');
 
 
 @Injectable({
@@ -19,7 +14,7 @@ export class MedicosService {
   constructor(private http: HttpClient) {}
 
   retornarDatos(){
-    return this.http.get("http://localhost:3000/api/doctores");
+    return this.http.get("https://consultorio.fly.dev/api/doctores");
   }
 
   
