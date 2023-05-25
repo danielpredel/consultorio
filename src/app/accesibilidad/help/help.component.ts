@@ -124,6 +124,7 @@ export class HelpComponent {
   }    
   cancelarl(){
     this.Bleer=false;
+    this.Bpausa=false;
     speechSynthesis.cancel();
   }
   verpr(){
