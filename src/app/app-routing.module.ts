@@ -7,6 +7,8 @@ import { MasonryComponent } from './masonry/masonry.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
+import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path : 'masonry', component: MasonryComponent},
   { path : 'about', component: AboutComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
+  { path: 'Registro', component: ABCUsuariosComponent},
   {path:'login', component: LoginComponent},
+  {path:'MostrarUsuarios', component: MostrarUsuaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }
 ];
 

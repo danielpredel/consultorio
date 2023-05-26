@@ -1,0 +1,22 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(46, 46, 147, 0.539);
+    width: 50%;
+}
+.ancho{
+    display: flex;
+    justify-content: center;
+}
+.subtitulo{
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-shadow: rgb(0, 0, 0) 2px 1px;
+}
+input{
+    margin-left: 25%  ;
+    width: 50%;
+}

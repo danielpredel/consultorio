@@ -25,6 +25,7 @@ import { HelpComponent } from './accesibilidad/help/help.component';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './login-service.service';
 import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
+import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
     HelpComponent,
     LoginComponent,
     ABCUsuariosComponent,
+    MostrarUsuaComponent,
  
     
   ],

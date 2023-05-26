@@ -1,1 +1,18 @@
-<p>abcusuarios works!</p>
+<div class="ancho">
+    <div class="contenedor">
+        <h1 class="subtitulo">REGISTRO DE USUARIOS</h1>
+        <span class="subtitulo">Nombre: </span>
+        <input type="text" [(ngModel)]="nombre">
+        <br>
+        <span class="subtitulo">Email:</span>
+        <input type="email" [(ngModel)]="email">
+        <br>
+        <span class="subtitulo">Contraseña:</span>
+        <input type="password" [(ngModel)]="pass">
+        <br>
+        <span class="subtitulo">Numero:</span>
+        <input type="number" [(ngModel)]="telefono">
+        <br>
+        <button class="btn btn-primary"(click)="altausuario()">Crear Usuario</button>
+    </div> 
+</div>

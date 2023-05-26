@@ -1,0 +1,27 @@
+<div class="container mt-3 min-altura">
+    <h1>Citas Reservadas</h1>
+    <div *ngIf="!usuarios.length">No hay citas por el momento</div>
+    <table *ngIf="usuarios.length" class="table table-info table-striped">
+      <thead>
+        <tr>
+          <th id="color" scope="col">Nombre</th>
+          <th id="color" scope="col">email</th>
+          <th id="color" scope="col">cotraseña</th>
+          <th id="color" scope="col">telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of usuarios">
+          <td id="color">{{ cita.nombre }}</td>
+          <td id="color">{{ cita.email }}</td>
+          <td id="color">{{ cita.pas }}</td>
+          <td id="color">{{ cita.tel }}</td>
+      </tbody>
+    </table>
+  </div>
+  <!--
+    nombre:string;
+    email:string;
+    pas:string,
+    tel:string;
+  -->

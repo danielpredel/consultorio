@@ -23,6 +23,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a [routerLink]="['/MostrarUsuarios']" class="nav-link active" aria-current="page">Mostrar Usuarios</a>
+        </li>
         <li *ngIf="!estalogeado()">
           <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
         </li>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import swal  from 'sweetalert';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 @Injectable({
   providedIn: 'root' 
 })
@@ -44,6 +45,21 @@ export class LoginServiceService {
         this.token="";
         this.router.navigate(['/']);
       });
+    }
+    AgregarAuth(email:string,password:string){
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+          swal("Error: lo siento",errorMessage , "error");
+        });
     }
   
 }

@@ -1,5 +1,5 @@
 <div class="conte">
-    <form action="" class="formlogin" #formulario="ngForm" (ngSubmit)="login(formulario)">
+    <form action="" class="formlogin" #formulario="ngForm" >
         <div>
             <span id="inputGroup-sizing-default" style="color: white; font-size: large; ">INGRESA TU EMAIL</span>
             <input type="email" name="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel>
@@ -12,12 +12,12 @@
             <br>
         </div>
         <div style="display: flex; justify-content: center;">
-            <button type="submit" class="btn btn-primary">ENTRAR</button>
+            <button type="submit" class="btn btn-primary"(click)="login(formulario)">ENTRAR</button>
         </div>
         <br>
         <div>
             <button class="btn btn-primary">
-                <a >REGISTRARSE</a>
+                <a style="text-decoration: none; color: white;" [routerLink]="['/Registro']" >REGISTRARSE</a>
             </button >
             <button class="btn btn-primary">
                 <a >INICIAR CON SMS</a>
