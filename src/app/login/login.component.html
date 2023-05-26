@@ -1,18 +1,27 @@
 <div class="conte">
     <form action="" class="formlogin" #formulario="ngForm" (ngSubmit)="login(formulario)">
         <div>
-            <span class="input-group-text" id="inputGroup-sizing-default">Ingresa tu Email</span>
+            <span id="inputGroup-sizing-default" style="color: white; font-size: large; ">INGRESA TU EMAIL</span>
             <input type="email" name="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel>
              <br>
         </div>
         <div>
-            <span class="input-group-text" id="inputGroup-sizing-default">Ingresa tu Contraseña</span>
+            <span  id="inputGroup-sizing-default"  style="color: white; font-size: large; ">INGRESA TU CONTRASEÑA</span>
             
             <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel>
             <br>
         </div>
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" class="btn btn-primary">ENTRAR</button>
+        </div>
+        <br>
         <div>
-            <button type="submit" class="btn btn-primary">Entrar</button>
+            <button class="btn btn-primary">
+                <a >REGISTRARSE</a>
+            </button >
+            <button class="btn btn-primary">
+                <a >INICIAR CON SMS</a>
+            </button>
         </div>
     </form>
 </div>

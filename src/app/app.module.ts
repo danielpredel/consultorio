@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HelpComponent } from './accesibilidad/help/help.component';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './login-service.service';
+import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoginServiceService } from './login-service.service';
     FooterComponent,
     HelpComponent,
     LoginComponent,
+    ABCUsuariosComponent,
  
     
   ],

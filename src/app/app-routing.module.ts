@@ -16,7 +16,7 @@ const routes: Routes = [
   { path : 'about', component: AboutComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
   {path:'login', component: LoginComponent},
-  { path: '**', pathMatch: 'full', redirectTo: '' }
+  { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }
 ];
 
 @NgModule({

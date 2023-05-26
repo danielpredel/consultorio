@@ -14,6 +14,7 @@ export class LoginComponent {
 login(form:NgForm){
   const email=form.value.email;
   const password=form.value.password;
+  console.log("pasa");
   this.loginservice.login(email,password);
 }
 }

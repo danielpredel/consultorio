@@ -17,6 +17,7 @@ export class FirebaseReservaService {
     );
     
   }
+  
   cargarCita(){
     const token=this.login.getidtoken();
       return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?auth="+token);

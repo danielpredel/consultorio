@@ -17,10 +17,15 @@ export class AlmacenamientoCitasService   {
       this.citas=Object.values(citas);
     })
     console.log("hola");
+    
   }
   
   getCitas() {
-    
+    this.guadarfire.cargarCita().subscribe(citas=>{
+      console.log(citas);
+      this.citas=Object.values(citas);
+    })
+    console.log("hola");
     return this.citas;
   }
   //observable para operaciones asincronas
@@ -29,6 +34,7 @@ export class AlmacenamientoCitasService   {
   }*/
 
   agregarCita(cita: Cita) {
+    this.getCitas();
     this.citas.push(cita);
     this.guadarfire.guardarCitas(this.citas);
     localStorage.setItem('citas', JSON.stringify(this.citas));

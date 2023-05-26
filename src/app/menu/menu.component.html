@@ -23,8 +23,11 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
-        <li>
+        <li *ngIf="!estalogeado()">
           <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+        </li>
+        <li *ngIf="estalogeado()">
+          <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
         </li>
         <li>
           
