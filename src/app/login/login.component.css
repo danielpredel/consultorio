@@ -1,0 +1,14 @@
+.conte{
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+   
+}
+.formlogin{
+    padding: 30px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/005/912/823/non_2x/abstract-vertical-background-with-a-combination-of-light-blue-and-dark-blue-gradient-colors-free-vector.jpg");
+}
+.input{
+    padding: 20px;
+
+}

@@ -1,0 +1,33 @@
+.opciones{
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: large;
+}
+.opciones2{
+    background: rgb(0, 0, 0);
+    color: white;
+    font-size: large;
+}
+.Blaco{
+    color: white;
+}
+
+.colorv1{
+   background: rgb(33, 33, 33);
+  
+}
+.colorv2{
+    background: rgba(166, 227, 249, 0.477);
+    
+}
+.titulo{
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    text-shadow: rgb(0, 0, 0) 2px 1px;
+}
+.subtitulo{
+    color: white;
+    font-size: large;
+    text-shadow: rgb(0, 0, 0) 1px 1px;
+}

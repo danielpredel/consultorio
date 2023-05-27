@@ -8,6 +8,7 @@ import {
 import {
   AlmacenamientoCitasService
 } from '../almacenamiento-citas.service';
+import { FirebaseReservaService } from '../firebase-reserva.service';
 
 @Component({
   selector: 'app-citas-reservadas',
@@ -17,10 +18,14 @@ import {
 export class CitasReservadasComponent implements OnInit {
   citas: Cita[] = [];
 
-  constructor(private citasService: AlmacenamientoCitasService) {}
+  constructor(private citasService: AlmacenamientoCitasService,private guardafire:FirebaseReservaService) {}
 
   ngOnInit() {
-    this.citas = this.citasService.getCitas();
+    
+     this.guardafire.cargarCita().subscribe(citas=>{
+      console.log(citas);
+      this.citas=Object.values(citas);
+    });
     this.citas.sort((a, b) => {
       if (a.year < b.year) {
         return -1;
@@ -47,5 +52,7 @@ export class CitasReservadasComponent implements OnInit {
       }
     });
   }
-
+  async sleep(seconds:number){
+    return new Promise((resolve)=>setTimeout(resolve,seconds*1000));
+}  
 }
