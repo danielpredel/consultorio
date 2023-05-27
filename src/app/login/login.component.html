@@ -1,27 +1,29 @@
 <div class="conte">
-    <form action="" class="formlogin" #formulario="ngForm" (ngSubmit)="login(formulario)">
-        <div>
-            <span id="inputGroup-sizing-default" style="color: white; font-size: large; ">INGRESA TU EMAIL</span>
-            <input type="email" name="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel>
-             <br>
-        </div>
-        <div>
-            <span  id="inputGroup-sizing-default"  style="color: white; font-size: large; ">INGRESA TU CONTRASEÑA</span>
-            
-            <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel>
-            <br>
-        </div>
-        <div style="display: flex; justify-content: center;">
-            <button type="submit" class="btn btn-primary">ENTRAR</button>
-        </div>
-        <br>
-        <div>
-            <button class="btn btn-primary">
-                <a >REGISTRARSE</a>
-            </button >
-            <button class="btn btn-primary">
-                <a >INICIAR CON SMS</a>
-            </button>
-        </div>
-    </form>
+  <!-- <form class="formlogin bg-light" #formulario="ngForm" (ngSubmit)="login(formulario)"> -->
+  <form class="formlogin bg-light" #formulario="ngForm">
+    <div>
+      <!-- <span id="inputGroup-sizing-default" style="color: white; font-size: large; ">Email</span> -->
+      <input type="email" name="email" id="email" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" ngModel placeholder="Correo Electrónico">
+      <br>
+    </div>
+    <div>
+      <!-- <span id="inputGroup-sizing-default" style="color: white; font-size: large; ">Contraseña</span> -->
+      <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" ngModel placeholder="Contraseña">
+      <br>
+    </div>
+    <!-- <div style="display: flex; justify-content: center;"> -->
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary" (click)="login(formulario)">Iniciar Sesión</button>
+    </div>
+    <hr>
+    <div class="d-grid gap-2">
+      <button class="btn btn-info">Crear Nueva Cuenta</button>
+    </div>
+    <br>
+    <div class="d-grid gap-2">
+      <button class="btn btn-warning">Login SMS</button>
+    </div>
+  </form>
 </div>

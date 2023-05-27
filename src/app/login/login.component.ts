@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { LoginServiceService } from '../login-service.service';
+import {
+  Component
+} from '@angular/core';
+import {
+  NgForm
+} from '@angular/forms';
+import {
+  LoginServiceService
+} from '../login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +14,13 @@ import { LoginServiceService } from '../login-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private loginservice:LoginServiceService){
+  constructor(private loginservice: LoginServiceService) {
 
   }
-login(form:NgForm){
-  const email=form.value.email;
-  const password=form.value.password;
-  console.log("pasa");
-  this.loginservice.login(email,password);
-}
+  login(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
+    console.log("pasa");
+    this.loginservice.login(email, password);
+  }
 }

@@ -15,7 +15,6 @@ export class FirebaseReservaService {
       error=>console.log("error"+error),
 
     );
-    
   }
   
   cargarCita(){

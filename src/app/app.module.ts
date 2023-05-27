@@ -76,6 +76,7 @@ import {
 import {
   ABCUsuariosComponent
 } from './abcusuarios/abcusuarios.component';
+import { RegistroComponent } from './registro/registro.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import {
     HelpComponent,
     LoginComponent,
     ABCUsuariosComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
