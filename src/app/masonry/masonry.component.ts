@@ -25,7 +25,6 @@ export class MasonryComponent implements OnInit {
       (result: any) => {
         this.medicos = result;
         this.estado = true;
-        console.log(this.medicos);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

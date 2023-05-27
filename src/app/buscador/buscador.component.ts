@@ -42,7 +42,6 @@ export class BuscadorComponent implements OnInit, DoCheck {
   buscarMedicina(buscar: string) {
     this.medicamentosService.retornarDatos(buscar).subscribe(
       (result: any) => {
-        console.log(result);
         this.busquedaAnterior = this.busqueda;
         this.estado = true;
         if (result == null) {
