@@ -23,4 +23,8 @@ export class LoginComponent {
     console.log("pasa");
     this.loginservice.login(email, password);
   }
+
+  registro(){
+    this.loginservice.redirectToRegistro();
+  }
 }

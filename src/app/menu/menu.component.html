@@ -24,6 +24,9 @@
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
         <li *ngIf="!estalogeado()">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Registro</a>
+        </li>
+        <li *ngIf="!estalogeado()">
           <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
         </li>
         <li *ngIf="estalogeado()">

@@ -7,11 +7,15 @@ import {
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import swal from 'sweetalert';
+import {
+  getDatabase,
+  ref,
+  set
+} from "firebase/database";
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
-
   constructor(private router: Router) {}
   token: string = "";
 
@@ -21,7 +25,7 @@ export class LoginServiceService {
       Response => {
         firebase.auth().currentUser?.getIdToken().then(
           token => {
-            swal("Genial Bienvenido: " + email, "", "success");
+            swal("Bienvenido: " + email, "", "success");
             this.token = token;
             this.router.navigate(['citas-reservadas']);
           }
@@ -31,9 +35,7 @@ export class LoginServiceService {
       console.log("nooo")
       const errorCode = error.code;
       const errorMessage = error.message;
-      // swal("Usuario no encontrado", "Verifica tus datos " + errorMessage, "error");
       swal("Usuario no encontrado", "Verifica tus datos ", "error");
-
     });
   }
 
@@ -52,4 +54,32 @@ export class LoginServiceService {
     });
   }
 
+  redirectToRegistro() {
+    this.router.navigate(['registro']);
+  }
+
+  registro(nombre: string, apellidos: string, telefono: string, email: string, password: string) {
+    var userData = {
+      nombre: nombre,
+      apellidos: apellidos,
+      telefono: telefono,
+      email: email
+    }
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(
+      Response => {
+      var user = firebase.auth().currentUser;
+      var database = getDatabase();
+      if (user != null) {
+        set(ref(database, 'Usuarios/' + user.uid), {
+        nombre: nombre,
+        apellidos: apellidos,
+        email: email,
+        telefono: telefono
+        });
+        swal("Registro Exitoso", "", "success");
+      }
+    }).catch((error) => {
+      swal("Ocurrio un Error", "", "error");
+    });
+  }
 }

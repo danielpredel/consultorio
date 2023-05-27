@@ -92,7 +92,7 @@ import { RegistroComponent } from './registro/registro.component';
     HelpComponent,
     LoginComponent,
     ABCUsuariosComponent,
-    RegistroComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

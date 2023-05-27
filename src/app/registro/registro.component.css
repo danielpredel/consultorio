@@ -1,0 +1,16 @@
+.conte {
+  margin: 3%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.formlogin {
+  padding: 30px;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.input {
+  padding: 20px;
+}
