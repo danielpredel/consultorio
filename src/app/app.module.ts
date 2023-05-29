@@ -76,7 +76,9 @@ import {
 import {
   ABCUsuariosComponent
 } from './abcusuarios/abcusuarios.component';
-import { RegistroComponent } from './registro/registro.component';
+import {
+  RegistroComponent
+} from './registro/registro.component';
 
 
 @NgModule({
@@ -105,7 +107,7 @@ import { RegistroComponent } from './registro/registro.component';
     MatInputModule,
     FormsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [MedicosService, LoginServiceService, MedicamentosService],
   bootstrap: [AppComponent]

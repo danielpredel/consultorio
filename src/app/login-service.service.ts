@@ -59,27 +59,25 @@ export class LoginServiceService {
   }
 
   registro(nombre: string, apellidos: string, telefono: string, email: string, password: string) {
-    var userData = {
-      nombre: nombre,
-      apellidos: apellidos,
-      telefono: telefono,
-      email: email
-    }
     firebase.auth().createUserWithEmailAndPassword(email, password).then(
       Response => {
-      var user = firebase.auth().currentUser;
-      var database = getDatabase();
-      if (user != null) {
-        set(ref(database, 'Usuarios/' + user.uid), {
-        nombre: nombre,
-        apellidos: apellidos,
-        email: email,
-        telefono: telefono
-        });
-        swal("Registro Exitoso", "", "success");
-      }
-    }).catch((error) => {
+        var user = firebase.auth().currentUser;
+        var database = getDatabase();
+        if (user != null) {
+          set(ref(database, 'Usuarios/' + user.uid), {
+            nombre: nombre,
+            apellidos: apellidos,
+            email: email,
+            telefono: telefono
+          });
+          swal("Registro Exitoso", "", "success");
+        }
+      }).catch((error) => {
       swal("Ocurrio un Error", "", "error");
     });
+  }
+  
+  redirectToPhoneLogin(){
+    this.router.navigate(['phone-login']);
   }
 }

@@ -4,7 +4,7 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <img src="assets/img/Icono.jpeg" alt="" height="50" width="50">
@@ -23,30 +23,33 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
-        <li *ngIf="!estalogeado()">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Registro</a>
-        </li>
-        <li *ngIf="!estalogeado()">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
-        </li>
-        <li *ngIf="estalogeado()">
-          <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
-        </li>
+        <ng-container *ngIf="!estalogeado()">
+          <li routerLinkActive="active">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Registro</a>
+          </li>
+          <li routerLinkActive="active">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="estalogeado()">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
+          </li>
+        </ng-container>
         <li>
-          
           <app-help></app-help>
         </li>
-        
-      
+
+
       </ul>
-      
+
       <form class="d-flex" role="search">
         <input #busca id="busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <!--<div class="example-button-row">
           <a mat-raised-button color="primary"  [routerLink]="['/Buscar/:']" >Buscar Medicamento</a
         </div>>-->
         <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
-        <button  class="btn btn-outline-info" type="submit" (click)="dirigir(busca.value)">Search</button>
+        <button class="btn btn-outline-info" type="submit" (click)="dirigir(busca.value)">Search</button>
       </form>
     </div>
   </div>

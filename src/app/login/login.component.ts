@@ -27,4 +27,8 @@ export class LoginComponent {
   registro(){
     this.loginservice.redirectToRegistro();
   }
+
+  phoneLogin(){
+    this.loginservice.redirectToPhoneLogin();
+  }
 }
