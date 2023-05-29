@@ -79,6 +79,12 @@ import {
 import {
   RegistroComponent
 } from './registro/registro.component';
+import {
+  MostrarUsuaComponent
+} from './mostrar-usua/mostrar-usua.component';
+import {
+  SMSMComponent
+} from './smsm/smsm.component';
 
 
 @NgModule({
@@ -94,6 +100,8 @@ import {
     HelpComponent,
     LoginComponent,
     ABCUsuariosComponent,
+    MostrarUsuaComponent,
+    SMSMComponent,
     RegistroComponent
   ],
   imports: [

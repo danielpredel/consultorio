@@ -5,7 +5,11 @@ import {
   Router
 } from '@angular/router';
 import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
+import 'firebase/compat/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "firebase/auth";
 import swal from 'sweetalert';
 import {
   getDatabase,
@@ -16,6 +20,7 @@ import {
   providedIn: 'root'
 })
 export class LoginServiceService {
+
   constructor(private router: Router) {}
   token: string = "";
 
@@ -38,20 +43,36 @@ export class LoginServiceService {
       swal("Usuario no encontrado", "Verifica tus datos ", "error");
     });
   }
-
+  
   getidtoken() {
     return this.token;
   }
-
   estalogiado() {
     return this.token;
   }
-
   logout() {
     firebase.auth().signOut().then(() => {
       this.token = "";
       this.router.navigate(['/']);
     });
+  }
+  AgregarAuth(email: string, password: string) {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        swal("Error: lo siento", errorMessage, "error");
+      });
+  }
+  iniciartoken(token: string) {
+    this.token = token;
   }
 
   redirectToRegistro() {
@@ -76,8 +97,8 @@ export class LoginServiceService {
       swal("Ocurrio un Error", "", "error");
     });
   }
-  
-  redirectToPhoneLogin(){
-    // this.router.navigate(['phone-login']);
+
+  redirectToPhoneLogin() {
+    this.router.navigate(['phone-login']);
   }
 }

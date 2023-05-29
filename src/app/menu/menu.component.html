@@ -23,6 +23,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/usuarios']">Usuarios</a>
+        </li>
         <ng-container *ngIf="!estalogeado()">
           <li routerLinkActive="active">
             <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Registro</a>
@@ -39,16 +42,9 @@
         <li>
           <app-help></app-help>
         </li>
-
-
       </ul>
-
       <form class="d-flex" role="search">
         <input #busca id="busca" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <!--<div class="example-button-row">
-          <a mat-raised-button color="primary"  [routerLink]="['/Buscar/:']" >Buscar Medicamento</a
-        </div>>-->
-        <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
         <button class="btn btn-outline-info" type="submit" (click)="dirigir(busca.value)">Search</button>
       </form>
     </div>
