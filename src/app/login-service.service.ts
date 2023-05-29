@@ -61,5 +61,8 @@ export class LoginServiceService {
           swal("Error: lo siento",errorMessage , "error");
         });
     }
+    iniciartoken( token:string){
+      this.token=token;
+    }
   
 }

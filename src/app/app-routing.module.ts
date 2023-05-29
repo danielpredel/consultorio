@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
 import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
+import { SMSMComponent } from './smsm/smsm.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'Registro', component: ABCUsuariosComponent},
   {path:'login', component: LoginComponent},
   {path:'MostrarUsuarios', component: MostrarUsuaComponent},
+  {path:'SMS', component: SMSMComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }
 ];
 

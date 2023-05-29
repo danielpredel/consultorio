@@ -1,0 +1,22 @@
+<div class="contenedor ancho">
+    <h3 class="subtitulo">Incia Sesion SMS</h3>
+    <div class="ancho">
+        <div *ngIf="!enviado else non">
+            <span class="subtitulo">Ingresa tu numero telefonico</span>
+            <br><br>
+            <input type="text" #tele>
+            <br><br>
+            <div id="recaptcha-container"></div>
+            <button (click)="recapcha()" class="btn btn-primary">Ver Captcha</button>
+            <button *ngIf="cat" (click)="enviarCodigo(tele.value)" class="btn btn-primary">enviarCodigo</button>
+        </div>
+        <ng-template #non >
+            <span class="subtitulo">Ingresa codigo Verificacion Enviado</span>
+            <br><br>
+            <input  type="text" #confirma>
+            <br><br>
+            <button (click)="vercodigo(confirma.value)" class="btn btn-primary">ver codigo</button>
+        </ng-template>
+    </div>
+    
+</div>

@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './login-service.service';
 import { ABCUsuariosComponent } from './abcusuarios/abcusuarios.component';
 import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
+import { SMSMComponent } from './smsm/smsm.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
     LoginComponent,
     ABCUsuariosComponent,
     MostrarUsuaComponent,
+    SMSMComponent,
  
     
   ],
