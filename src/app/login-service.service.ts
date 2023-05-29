@@ -78,6 +78,6 @@ export class LoginServiceService {
   }
   
   redirectToPhoneLogin(){
-    this.router.navigate(['phone-login']);
+    // this.router.navigate(['phone-login']);
   }
 }
