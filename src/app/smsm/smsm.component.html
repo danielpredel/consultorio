@@ -1,21 +1,31 @@
-<div class="contenedor ancho">
-  <h3 class="subtitulo">Incia Sesion SMS</h3>
-  <div class="ancho">
+<div class="conte">
+  <form class="formlogin bg-light">
+    <h3>Login SMS</h3>
     <div *ngIf="!enviado else non">
-      <span class="subtitulo">Ingresa tu numero telefonico</span>
-      <br><br>
-      <input type="text" #tele>
-      <br><br>
+      <div>
+        <input type="tel" #tele class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" placeholder="Número de Teléfono">
+      </div>
       <div id="recaptcha-container"></div>
-      <button (click)="recapcha()" class="btn btn-primary">Ver Captcha</button>
-      <button *ngIf="cat" (click)="enviarCodigo(tele.value)" class="btn btn-primary">enviarCodigo</button>
+      <br>
+      <div class="d-grid gap-2">
+        <button (click)="recapcha()" class="btn btn-warning">Ver Captcha</button>
+      </div>
+      <div class="d-grid gap-2" *ngIf="cat">
+        <br>
+        <button (click)="enviarCodigo(tele.value)" class="btn btn-primary">Enviar SMS</button>
+      </div>
     </div>
-    <ng-template #non>
-      <span class="subtitulo">Ingresa codigo Verificacion Enviado</span>
-      <br><br>
-      <input type="text" #confirma>
-      <br><br>
-      <button (click)="vercodigo(confirma.value)" class="btn btn-primary">ver codigo</button>
-    </ng-template>
-  </div>
+  </form>
 </div>
+
+<ng-template #non>
+  <div>
+    <input type="text" #confirma class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" placeholder="Codigo" min="6" max="6">
+  </div>
+  <br>
+  <div class="d-grid gap-2" *ngIf="cat">
+    <button (click)="vercodigo(confirma.value)" class="btn btn-warning">Enviar Codigo</button>
+  </div>
+</ng-template>

@@ -47,9 +47,11 @@ export class LoginServiceService {
   getidtoken() {
     return this.token;
   }
+
   estalogiado() {
     return this.token;
   }
+  
   logout() {
     firebase.auth().signOut().then(() => {
       this.token = "";

@@ -1,22 +1,16 @@
-.contenedor{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(46, 46, 147, 0.539);
-    width: 50%;
+.conte {
+  margin: 3%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
 }
-.ancho{
-    display: flex;
-    justify-content: center;
+
+.formlogin {
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
 }
-.subtitulo{
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    text-shadow: rgb(0, 0, 0) 2px 1px;
-}
-input{
-    
-    width: 100%;
+
+.input {
+  padding: 20px;
 }

@@ -24,7 +24,7 @@ export class AlmacenamientoCitasService   {
     
   }
   agregarusuario(usu:Usuarios){
-    this.login.AgregarAuth(usu.email,usu.pas);
+    // this.login.AgregarAuth(usu.email,usu.pas);
     this.getUsuarios();
     this.usuarioss.push(usu);
     this.guadarfire.guardarusu(this.usuarioss);

@@ -74,9 +74,6 @@ import {
   LoginServiceService
 } from './login-service.service';
 import {
-  ABCUsuariosComponent
-} from './abcusuarios/abcusuarios.component';
-import {
   RegistroComponent
 } from './registro/registro.component';
 import {
@@ -99,7 +96,6 @@ import {
     FooterComponent,
     HelpComponent,
     LoginComponent,
-    ABCUsuariosComponent,
     MostrarUsuaComponent,
     SMSMComponent,
     RegistroComponent
