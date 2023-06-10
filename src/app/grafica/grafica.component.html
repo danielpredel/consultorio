@@ -1,0 +1,36 @@
+<div class="container mt-3 min-altura">
+    <h1>Citas reservadas de cada mes</h1>
+    <table class="table table-info table-striped">
+      <thead>
+        <tr>
+          <th id="color" scope="col">Junio</th>
+          <th id="color" scope="col">Julio</th>
+          <th id="color" scope="col">Agosto</th>
+          <th id="color" scope="col">Septiembre</th>
+          <th id="color" scope="col">Octubre</th>
+          <th id="color" scope="col">Noviembre</th>
+          <th id="color" scope="col">Diciembre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td *ngFor="let dat of meses">{{dat}}</td>
+          <!--<td *ngFor="let da of label">{{da}}</td>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row" id="bot">
+    <div class="col-lg-6">
+      <button class="btn btn-info" (click)="RenderChart()">Gráfica</button>
+      <!--<canvas id="piechart"></canvas>-->
+    </div>
+  </div>
+  <br />
+  <div class="col-7" id="grafica">
+    <div class="chart-wrapper">
+      <canvas id="piechart"></canvas>
+    </div>
+  </div>
+  <br>
+  

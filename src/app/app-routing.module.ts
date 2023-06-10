@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
 import { SMSMComponent } from './smsm/smsm.component';
 import { RegistroComponent } from './registro/registro.component';
+import { GraficaComponent } from './grafica/grafica.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'Buscar/:buscar', component: BuscadorComponent},
   { path: 'login', component: LoginComponent},
   { path: 'usuarios', component: MostrarUsuaComponent},
+  { path: 'grafica', component: GraficaComponent},
   { path: 'phone-login', component: SMSMComponent},
   { path: 'registro', component: RegistroComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }

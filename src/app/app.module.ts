@@ -82,6 +82,7 @@ import {
 import {
   SMSMComponent
 } from './smsm/smsm.component';
+import { GraficaComponent } from './grafica/grafica.component';
 
 
 @NgModule({
@@ -98,7 +99,8 @@ import {
     LoginComponent,
     MostrarUsuaComponent,
     SMSMComponent,
-    RegistroComponent
+    RegistroComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,

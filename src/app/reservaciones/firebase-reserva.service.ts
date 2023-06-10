@@ -32,4 +32,25 @@ export class FirebaseReservaService {
   cargarUsuarios(){
     return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios.json");
   }
+  cargarJunio(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Junio%22")
+  }
+  cargarJulio(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Julio%22")
+  }
+  cargarAgosto(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Agosto%22")
+  }
+  cargarSeptiembre(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Septiembre%22")
+  }
+  cargarOctubre(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Octubre%22")
+  }
+  cargarNoviembre(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Noviembre %22")
+  }
+  cargarDiciembre(){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Diciembre%22")
+  }
 }
