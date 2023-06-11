@@ -11,9 +11,9 @@ function conectionEmail() {
 }
 
 function CrearMensaje(correo, asunto, descripcion) {
-  descripcionMen="Recibimos su mensaje, se atenderá lo antes posible!";
+  descripcionMen="Recibimos su mensaje, Consultorio Don Julio le atenderá lo antes posible!";
   return (mensaje = {
-    from: "Victor Hugo Jimenez Prado",
+    from: "Consultorio Don Julio",
     to: correo,
     subject: asunto,
     text: descripcionMen,

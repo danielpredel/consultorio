@@ -19,22 +19,24 @@ router.post(
     const { correo, asunto, descripcion } = req.body;
 
     mensaje = msj.CrearMensaje(correo, asunto, descripcion);
-    mensajeAdim = msj.CrearMensajeAdmin(correo, asunto, descripcion);
+    console.log("CLIENTEEEE");
     console.log(mensaje);
     var transporter = msj.conectionEmail();
-
+    
     transporter.sendMail(mensaje, (error, info) => {
       if (error) {
         console.log("Error enviando email");
         console.log(error.message);
       } else {
-        console.log("Email enviado");
+        console.log("Email enviado Cliente");
         res.json({ success: true, data: JSON.stringify(
-            {correo,asunto,descripcion}
-        ) });
-      }
-    });
-    transporter.sendMail(mensajeAdim, (error, info) => {
+          {correo,asunto,descripcion}
+          ) });
+        }
+      });
+      var transporter2 = msj.conectionEmail();
+      mensajeAdim = msj.CrearMensajeAdmin(correo, asunto, descripcion);
+    transporter2.sendMail(mensajeAdim, (error, info) => {
       if (error) {
         console.log("Error enviando email");
         console.log(error.message);
