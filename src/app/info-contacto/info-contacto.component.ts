@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiCorreoService } from '../api-correo.service';
 
 @Component({
   selector: 'app-info-contacto',
@@ -11,14 +12,21 @@ export class InfoContactoComponent {
   comentario!: string;
   confirmarEnvio:boolean=false;
 
-
+  constructor(private servicioCorreo: ApiCorreoService) { }
   enviar():void{
     let body = {
       correo: this.correo,
       asunto: this.asunto,
-      descripcion: "Recibimos su mensaje, se atenderá lo antes posible!"
+      descripcion: this.comentario
     }
-
+    this.servicioCorreo.enviarCorreo("http://localhost:3000/enviar", body)
+    .then((data) => {
+      console.log(data);
+      this.confirmarEnvio=true;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   }
 }

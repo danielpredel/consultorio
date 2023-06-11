@@ -11,12 +11,13 @@ function conectionEmail() {
 }
 
 function CrearMensaje(correo, asunto, descripcion) {
+  descripcionMen="Recibimos su mensaje, se atenderá lo antes posible!";
   return (mensaje = {
     from: "Victor Hugo Jimenez Prado",
     to: correo,
     subject: asunto,
-    text: descripcion,
-    html: "<h1>" + asunto + "</h1><p>" + descripcion + "</p>",
+    text: descripcionMen,
+    html: "<h1>" + asunto + "</h1><p>" + descripcionMen + "</p>",
   });
 }
 function CrearMensajeAdmin(correo, asunto, descripcion) {
@@ -27,7 +28,7 @@ function CrearMensajeAdmin(correo, asunto, descripcion) {
     to: "jimenez.victor.1b.m@gmail.com",
     subject: asuntoAdm,
     text: descripcionAdm,
-    html: "<h1>" + asunto + "</h1><p>" + descripcion + "</p>",
+    html: "<h1>" + asuntoAdm + "</h1><p>" + descripcionAdm + "</p>",
   });
 }
 
