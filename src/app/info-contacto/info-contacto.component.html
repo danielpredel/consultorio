@@ -1,0 +1,38 @@
+<!-- <p>info-contacto works!</p> -->
+<div class="container mt-3 min-altura">
+    <h1>Contacto</h1>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo</label>
+        <input type="text" [(ngModel)]="correo" class="form-control" id="email" />
+      </div>
+    
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Asunto</label>
+        <input
+          type="text"
+          [(ngModel)]="asunto"
+          class="form-control"
+          id="lastname"
+        />
+      </div>
+    
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1">Mensaje:</label>
+        <textarea class="form-control" id="descripcion"
+        [(ngModel)]="comentario"
+         rows="3"></textarea>
+      </div>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="enviar()">
+          Enviar Comentario
+        </button>
+      </td>
+      <div class="container mt-5" *ngIf="confirmarEnvio">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Te enviamos un correo!</h4>
+            <p>Gracias por tu comentario, nos ayuda a seguir mejorando!</p>
+            <hr>
+            <p class="mb-0">Recibiras una respuesta pronto por Consultorio Don Julio</p>
+          </div>
+      </div>
+</div>

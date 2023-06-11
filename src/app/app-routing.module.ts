@@ -11,6 +11,7 @@ import { MostrarUsuaComponent } from './mostrar-usua/mostrar-usua.component';
 import { SMSMComponent } from './smsm/smsm.component';
 import { RegistroComponent } from './registro/registro.component';
 import { GraficaComponent } from './grafica/grafica.component';
+import { InfoContactoComponent } from './info-contacto/info-contacto.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'citas-reservadas', component: CitasReservadasComponent },
   { path: 'masonry', component: MasonryComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'contacto', component: InfoContactoComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
   { path: 'login', component: LoginComponent},
   { path: 'usuarios', component: MostrarUsuaComponent},

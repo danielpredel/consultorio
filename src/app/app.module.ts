@@ -84,6 +84,7 @@ import {
 } from './smsm/smsm.component';
 import { GraficaComponent } from './grafica/grafica.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { InfoContactoComponent } from './info-contacto/info-contacto.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MostrarUsuaComponent,
     SMSMComponent,
     RegistroComponent,
-    GraficaComponent
+    GraficaComponent,
+    InfoContactoComponent
   ],
   imports: [
     BrowserModule,
