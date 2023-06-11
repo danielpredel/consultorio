@@ -9,7 +9,7 @@ import { Usuarios } from './usuario.model';
 })
 export class FirebaseReservaService {
 
-  constructor(private httpClient:HttpClient,private login:LoginServiceService) { }
+  constructor(private httpClient:HttpClient) { }
   guardarCitas(Citas:Cita[]){
     this.httpClient.put("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json",Citas).subscribe(
       Response=>console.log("exito :)"),
@@ -24,9 +24,17 @@ export class FirebaseReservaService {
 
     );
   }
+  vernom(quien:string){
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios/"+quien+"/nombre.json");
+  }
+  citasde(quien:string){
+    console.log("pasee");
+    console.log("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22id%22&equalTo=%22"+quien+"%22")
+    //return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22id%22&equalTo="+quien);
+    return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22id%22&equalTo=%22"+quien+"%22");
+  }
   
   cargarCita(){
-    const token=this.login.getidtoken();
       return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json");
   }
   cargarUsuarios(){

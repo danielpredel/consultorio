@@ -11,29 +11,29 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Inicio</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="permiso(0,1)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/reservar-cita']">Reservar Cita</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="permiso(0,2)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/citas-reservadas']">Citas Reservadas</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active"*ngIf="permiso(0,1)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/masonry']">Nuestros Médicos</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" >
           <a class="nav-link active" aria-current="page" [routerLink]="['/about']">Acerca De</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active"*ngIf="permiso(1,1)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/contacto']">Contacto</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active"*ngIf="permiso(0,2)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/usuarios']">Usuarios</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active"*ngIf="permiso(0,2)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/grafica']">Graficas</a>
         </li>
         <ng-container *ngIf="!estalogeado()">
-          <li routerLinkActive="active">
+          <li routerLinkActive="active" >
             <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Registro</a>
           </li>
           <li routerLinkActive="active">
@@ -41,9 +41,17 @@
           </li>
         </ng-container>
         <ng-container *ngIf="estalogeado()">
+          
+          
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
           </li>
+          <br><br><br>
+          <ng-container *ngIf="nombrev()">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link active" aria-current="page" >Hola bienvenid@: {{nombre}}</a>
+            </li>
+          </ng-container>
         </ng-container>
         <li>
           <app-help></app-help>
@@ -56,3 +64,6 @@
     </div>
   </div>
 </nav>
+<!--<li class="nav-item" routerLinkActive="active"  >
+              <a class="nav-item"  aria-current="page" >Hola bienvenid@: </a>
+            </li>-->

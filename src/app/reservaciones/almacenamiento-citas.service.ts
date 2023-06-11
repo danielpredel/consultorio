@@ -57,7 +57,7 @@ export class AlmacenamientoCitasService   {
   
   nuevaCita(): Cita {
     return {
-      id: this.citas.length,
+      id: this.login.usuariolog,
       year: 0,
       mes: 0,
       dia: 0,
