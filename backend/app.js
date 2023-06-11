@@ -5,10 +5,9 @@ var cors = require('cors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var doctoresRouter = require('./routes/doctores');
 var medicinasRouter = require('./routes/medicinas');
+var correoRouter = require('./routes/correo');
 
 var app = express();
 
@@ -24,11 +23,10 @@ app.use(cookieParser());
 
 // Ruta inicial
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/', indexRouter);
-app.use('/api/users', usersRouter);
 app.use('/api/doctores', doctoresRouter);
 app.use('/api/medicinas', medicinasRouter);
+app.use('/api/correo', correoRouter);
+
 // Rutas virtuales de Angular
 app.use('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/index.html'));

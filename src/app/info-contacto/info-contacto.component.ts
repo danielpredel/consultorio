@@ -19,7 +19,7 @@ export class InfoContactoComponent {
       asunto: this.asunto,
       descripcion: this.comentario
     }
-    this.servicioCorreo.enviarCorreo("http://localhost:3000/enviar", body)
+    this.servicioCorreo.enviarCorreo("http://localhost:3000/api/correo", body)
     .then((data) => {
       console.log(data);
       this.confirmarEnvio=true;
