@@ -1,5 +1,5 @@
 import {
-  NgModule
+  NgModule, isDevMode
 } from '@angular/core';
 import {
   BrowserModule
@@ -83,6 +83,7 @@ import {
   SMSMComponent
 } from './smsm/smsm.component';
 import { GraficaComponent } from './grafica/grafica.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -114,6 +115,12 @@ import { GraficaComponent } from './grafica/grafica.component';
     FormsModule,
     MatTableModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [MedicosService, LoginServiceService, MedicamentosService],
   bootstrap: [AppComponent]
