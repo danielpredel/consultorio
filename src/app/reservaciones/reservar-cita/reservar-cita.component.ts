@@ -39,7 +39,9 @@ export class ReservarCitaComponent implements OnInit {
   horas: any = [];
   horasOcupadas: any = [];
 
-  constructor(private citasService: AlmacenamientoCitasService) {}
+  constructor(private citasService: AlmacenamientoCitasService) {
+    this.citasService.getCitas();
+  }
 
   ngOnInit() {
     this.cita = this.citasService.nuevaCita();
@@ -88,5 +90,6 @@ export class ReservarCitaComponent implements OnInit {
     alertifyjs.alert('Cita Reservada', 'Se ha almacenado tu reservacion en nuestro sistema', function () {
       alertifyjs.success('Reservacion Exitosa');
     });
+    
   }
 }
