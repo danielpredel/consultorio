@@ -16,20 +16,43 @@ import {
   ref,
   set
 } from "firebase/database";
+import { FirebaseReservaService } from './reservaciones/firebase-reserva.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private fire:FirebaseReservaService) {}
   token: string = "";
-
+  usuariolog:string="";
+  tipo_us:number=0;
+  nombre:string="";
   login(email: string, password: string) {
     console.log(email, password);
     firebase.auth().signInWithEmailAndPassword(email, password).then(
       Response => {
+        var user = firebase.auth().currentUser;
+        if (user != null) {
+          console.log("soy: "+user.uid);
+          this.usuariolog=user.uid;
+        }
+        
+       
         firebase.auth().currentUser?.getIdToken().then(
           token => {
+            if(email=="admin@gmail.com"){
+              this.tipo_us=2;
+            }else{
+              this.tipo_us=1;
+            }
+            if (user != null) {
+              this.fire.vernom(user.uid).subscribe(nombre=>{
+      
+                this.nombre=JSON.stringify(nombre);
+            
+              });
+            }
+           
             swal("Bienvenido: " + email, "", "success");
             this.token = token;
             this.router.navigate(['citas-reservadas']);
@@ -43,7 +66,13 @@ export class LoginServiceService {
       swal("Usuario no encontrado", "Verifica tus datos ", "error");
     });
   }
-  
+  gettipo(){
+    return this.tipo_us;
+  }
+  vnom(){
+    console.log("tu nombre es: "+this.nombre)
+    return this.nombre;
+  }
   getidtoken() {
     return this.token;
   }
@@ -56,6 +85,9 @@ export class LoginServiceService {
     firebase.auth().signOut().then(() => {
       this.token = "";
       this.router.navigate(['/']);
+      this.tipo_us=0;
+      this.nombre="";
+      this.usuariolog="";
     });
   }
   AgregarAuth(email: string, password: string) {
@@ -102,5 +134,8 @@ export class LoginServiceService {
 
   redirectToPhoneLogin() {
     this.router.navigate(['phone-login']);
+  }
+  iduslog(){
+    return this.usuariolog;
   }
 }

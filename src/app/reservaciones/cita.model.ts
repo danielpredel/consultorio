@@ -1,5 +1,5 @@
 export interface Cita {
-    id: number
+    id: string
     year: number,
     mes: number,
     dia: number,
