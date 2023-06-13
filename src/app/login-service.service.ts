@@ -55,7 +55,7 @@ export class LoginServiceService {
            
             swal("Bienvenido: " + email, "", "success");
             this.token = token;
-            this.router.navigate(['citas-reservadas']);
+            this.router.navigate(['']);
           }
         )
       }
@@ -70,7 +70,6 @@ export class LoginServiceService {
     return this.tipo_us;
   }
   vnom(){
-    console.log("tu nombre es: "+this.nombre)
     return this.nombre;
   }
   getidtoken() {
