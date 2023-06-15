@@ -22,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { DomseguroPipe } from './domseguro.pipe';
 import { FooterComponent } from './footer/footer.component';
 import { HelpComponent } from './accesibilidad/help/help.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HelpComponent } from './accesibilidad/help/help.component';
     DomseguroPipe,
     FooterComponent,
     HelpComponent,
+    PreguntasComponent,
     
   ],
   imports: [

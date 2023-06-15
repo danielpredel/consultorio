@@ -6,6 +6,7 @@ import { CitasReservadasComponent } from './reservaciones/citas-reservadas/citas
 import { MasonryComponent } from './masonry/masonry.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { AboutComponent } from './about/about.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path : 'masonry', component: MasonryComponent},
   { path : 'about', component: AboutComponent},
   { path: 'Buscar/:buscar', component: BuscadorComponent},
-  
+  { path: 'preguntas', component: PreguntasComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
