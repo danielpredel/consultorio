@@ -125,9 +125,9 @@ export class LoginServiceService {
     this.router.navigate(['registro']);
   }
 
-  registro(nombre: string, apellidos: string, telefono: string, email: string, password: string) {
+  registro(nombre: any, apellidos: any, telefono: any, email: any, password: any) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(
-      Response => {
+      Response => { 
         var user = firebase.auth().currentUser;
         var database = getDatabase();
         if (user != null) {
@@ -137,7 +137,10 @@ export class LoginServiceService {
             email: email,
             telefono: telefono
           });
-          swal("Registro Exitoso", "", "success");
+          swal("Registro Exitoso", "", "success")
+          .then((value) => {
+            this.redirectToLogin();
+          });
         }
       }).catch((error) => {
       swal("Ocurrio un Error", "", "error");
@@ -147,6 +150,11 @@ export class LoginServiceService {
   redirectToPhoneLogin() {
     this.router.navigate(['phone-login']);
   }
+
+  redirectToLogin() {
+    this.router.navigate(['login']);
+  }
+
   iduslog(){
     return this.usuariolog;
   }

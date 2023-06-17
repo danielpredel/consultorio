@@ -35,7 +35,7 @@ import {
   MatInputModule
 } from '@angular/material/input';
 import {
-  FormsModule
+  FormsModule, ReactiveFormsModule
 } from '@angular/forms';
 import {
   MatTableModule
@@ -125,6 +125,7 @@ import { PreguntasComponent } from './preguntas/preguntas.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    ReactiveFormsModule
   ],
   providers: [MedicosService, LoginServiceService, MedicamentosService,CookieService],
   bootstrap: [AppComponent]
