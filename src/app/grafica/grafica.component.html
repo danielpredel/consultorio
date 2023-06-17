@@ -1,4 +1,120 @@
 <div class="container mt-3 min-altura">
+  <h1>Citas por día de la semana</h1>
+  <table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th id="color" scope="col">Día</th>
+        <th id="color" scope="col">No.Citas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Lunes</td>
+        <td>{{diasSemana.lun}}</td>
+      </tr>
+      <tr >
+        <td>Martes</td>
+        <td>{{diasSemana.mar}}</td>
+        <!--<td *ngFor="let da of label">{{da}}</td>-->
+      </tr>
+      <tr>
+        <td>Miercoles</td>
+        <td>{{diasSemana.mie}}</td>
+      </tr>
+      <tr>
+        <td>Jueves</td>
+        <td>{{diasSemana.jue}}</td>
+      </tr>
+      <tr>
+        <td>Viernes</td>
+        <td>{{diasSemana.vie}}</td>
+      </tr>
+      <tr>
+        <td>Sabado</td>
+        <td>{{diasSemana.sab}}</td>
+      </tr>
+      <tr>
+        <td>Domingo</td>        
+        <td>{{diasSemana.dom}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+
+<div class="container mt-3 min-altura">
+  <h1>Citas por edad de los pacientes</h1>
+  <table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th id="color" scope="col">Edad</th>
+        <th id="color" scope="col">No.Citas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Edades de 0 a 10</td>
+        <td>{{edades.ran0}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 10 a 20</td>
+        <td>{{edades.ran10}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 20 a 30</td>
+        <td>{{edades.ran20}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 30 a 40</td>
+        <td>{{edades.ran30}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 40 a 50</td>
+        <td>{{edades.ran40}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 50 a 60</td>
+        <td>{{edades.ran50}}</td>
+      </tr>
+      <tr>
+        <td>Edades de 60 a 70</td>
+        <td>{{edades.ran60}}</td>
+      </tr>
+      <tr>
+        <td>Edades mayores a 70</td>
+        <td>{{edades.ranMas}}</td>
+        <!--<td *ngFor="let da of label">{{da}}</td>-->
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+
+<div class="container mt-3 min-altura">
+  <h1>Citas por turno</h1>
+  <table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th id="color" scope="col">Turno</th>
+        <th id="color" scope="col">No.Citas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>Turno Matutino</td>
+        <td>{{turno.matutino}}</td>
+        <!--<td *ngFor="let da of label">{{da}}</td>-->
+      </tr>
+      <tr>
+        <td>Turno vespertino</td>
+        <td>{{turno.vespertino}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+
+<div class="container mt-3 min-altura">
     <h1>Citas reservadas de cada mes</h1>
     <table class="table table-info table-striped">
       <thead>
@@ -13,7 +129,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr >
+        <tr>
           <td *ngFor="let dat of meses">{{dat}}</td>
           <!--<td *ngFor="let da of label">{{da}}</td>-->
         </tr>
@@ -22,7 +138,7 @@
   </div>
   <div class="row" id="bot">
     <div class="col-lg-6">
-      <button class="btn btn-info" (click)="RenderChart()">Gráfica</button>
+      <button class="btn btn-info" (click)="RenderChart()">Actualizar</button>
       <!--<canvas id="piechart"></canvas>-->
     </div>
   </div>
