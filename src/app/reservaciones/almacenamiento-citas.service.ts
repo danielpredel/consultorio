@@ -15,10 +15,11 @@ export class AlmacenamientoCitasService   {
   private usuarioss: Usuarios[]=[]
   constructor(private guadarfire:FirebaseReservaService,private login:LoginServiceService) {
     //this.citas = JSON.parse(localStorage.getItem('citas') || '[]');
-    this.guadarfire.cargarCita().subscribe(citas=>{
-      console.log(citas);
+    /*this.guadarfire.cargarCita().subscribe(citas=>{
+      
       this.citas=Object.values(citas);
-    })
+      console.log(this.citas);
+    })*/
     this.getUsuarios();
     console.log("hola");
     
@@ -53,6 +54,11 @@ export class AlmacenamientoCitasService   {
     this.citas.push(cita);
     this.guadarfire.guardarCitas(this.citas);
     localStorage.setItem('citas', JSON.stringify(this.citas));
+    setTimeout(() =>{
+      console.log("Hola Mundo");
+      this.getCitas();
+    }, 1000);
+    
   }
   
   nuevaCita(): Cita {
