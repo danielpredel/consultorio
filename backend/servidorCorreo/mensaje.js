@@ -4,8 +4,8 @@ function conectionEmail() {
   return (transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "victor000hugo10@gmail.com",
-      pass: "aiqpxzzmenwfnyud",
+      user: "donjulioconsultorioa@gmail.com",
+      pass: "yzsuehysbzlfeusz",
     },
   }));
 }
@@ -25,7 +25,7 @@ function CrearMensajeAdmin(correo, asunto, descripcion) {
   descripcionAdm="Recibio un correo de: "+correo+ " con el siguiente mensaje: " +descripcion;
   return (mensaje = {
     from: "Consultorio Don Julio",
-    to: "jimenez.victor.1b.m@gmail.com",
+    to: "donjulioconsultorioa@gmail.com",
     subject: asuntoAdm,
     text: descripcionAdm,
     html: "<h1>" + asuntoAdm + "</h1><p>" + descripcionAdm + "</p>",
