@@ -110,7 +110,7 @@ export class GraficaComponent implements OnInit {
         }
       }
 
-      // console.log(this.diasSemana);
+      //console.log(this.diasSemana);
 
     });
   }
