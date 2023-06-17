@@ -42,7 +42,7 @@ export class LoginServiceService {
        
         firebase.auth().currentUser?.getIdToken().then(
           token => {
-            if(email=="admin@gmail.com"){
+            if(email=="donjulioconsultorioa@gmail.com"){
               this.tipo_us=2;
               this.cookie.set("tipo","2");
             }else{
@@ -126,21 +126,29 @@ export class LoginServiceService {
   }
 
   registro(nombre: string, apellidos: string, telefono: string, email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(
-      Response => {
-        var user = firebase.auth().currentUser;
-        var database = getDatabase();
-        if (user != null) {
-          set(ref(database, 'Usuarios/' + user.uid), {
-            nombre: nombre,
-            apellidos: apellidos,
-            email: email,
-            telefono: telefono
-          });
-          swal("Registro Exitoso", "", "success");
-        }
-      }).catch((error) => {
-      swal("Ocurrio un Error", "", "error");
+    this.fire.buscarnum(telefono).subscribe(usu=>{
+      var hola="";
+      hola= Object.keys(usu)[0];
+     if(hola!=undefined){
+      swal("Ya esta este numero registrado" , "cambia el numero", "error");
+     }else{
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(
+        Response => {
+          var user = firebase.auth().currentUser;
+          var database = getDatabase();
+          if (user != null) {
+            set(ref(database, 'Usuarios/' + user.uid), {
+              nombre: nombre,
+              apellidos: apellidos,
+              email: email,
+              telefono: telefono
+            });
+            swal("Registro Exitoso", "", "success");
+          }
+        }).catch((error) => {
+        swal("Ocurrio un Error", "", "error");
+      });
+     }
     });
   }
 
