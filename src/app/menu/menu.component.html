@@ -11,6 +11,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Inicio</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/preguntas']">Preguntas Frecuentes</a>
+        </li>
         <li class="nav-item" routerLinkActive="active" *ngIf="permiso(0,1)">
           <a class="nav-link active" aria-current="page" [routerLink]="['/reservar-cita']">Reservar Cita</a>
         </li>
