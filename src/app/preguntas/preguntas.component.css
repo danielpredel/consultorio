@@ -1,0 +1,21 @@
+#logo{
+    text-align: center;
+    background: rgb(162, 219, 238);
+    margin-left: 36px;
+}
+.titulo{
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    text-shadow: rgb(0, 0, 0) 2px 5px;
+}
+.subtitulo{
+    color: white;
+    font-size: 30px;
+    text-shadow: rgb(0, 0, 0) 2px 1px;
+}
+.preguntas{
+    color: white;
+    font-size: 30px;
+    text-shadow: rgb(0, 0, 0) 2px 1px;
+}

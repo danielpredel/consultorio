@@ -18,6 +18,7 @@ import {
 } from '../login-service.service';
 import { FirebaseReservaService } from '../reservaciones/firebase-reserva.service';
 import { Usuarios } from '../reservaciones/usuario.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-smsm',
@@ -31,7 +32,7 @@ export class SMSMComponent {
   cat: boolean = false;
   usuario:Usuarios | undefined;
   //confirmationResult:any;
-  constructor(private router: Router, private sms: LoginServiceService,private fire:FirebaseReservaService) {
+  constructor(private router: Router, private sms: LoginServiceService,private fire:FirebaseReservaService,private cookie:CookieService) {
     //this.recapcha();
   }
 
@@ -105,6 +106,10 @@ export class SMSMComponent {
                 swal("Genial Bienvenido" , "", "success");
                 this.sms.tipo_us=1;
                 this.token = token;
+                this.cookie.set("token",this.token);
+                this.cookie.set("tipo","1");
+                this.cookie.set("usuariolog",this.sms.usuariolog);
+                this.cookie.set("nombre",this.sms.nombre);
                 console.log(this.token)
                 this.sms.iniciartoken(this.token);
                 this.router.navigate(['']);
