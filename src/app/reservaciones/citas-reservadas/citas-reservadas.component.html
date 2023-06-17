@@ -12,13 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cita of citas">
-        <td id="color">{{ cita.id }}</td>
+      <tr *ngFor="let cita of citas; let i = index">
+        <td id="color">{{ i }}</td>
         <td id="color">{{ cita.paciente }}</td>
         <td id="color">{{ cita.edad }}</td>
         <td id="color">{{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}</td>
         <td id="color" [innerHTML]="cita.hora + ':00 - ' + (cita.hora + 1) + ':00'"></td>
       </tr>
+      <!--*ngFor="let cita of citas"-->
     </tbody>
   </table>
 </div>

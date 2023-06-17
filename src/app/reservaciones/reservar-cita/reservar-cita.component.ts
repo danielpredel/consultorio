@@ -22,8 +22,9 @@ export class ReservarCitaComponent implements OnInit {
   fechaString: string | undefined;
   nombre: string = "";
   edad: number = 0;
+  citas:Cita[]=[]
   cita: Cita = {
-    id: 0,
+    id: "",
     year: 0,
     mes: 0,
     dia: 0,
