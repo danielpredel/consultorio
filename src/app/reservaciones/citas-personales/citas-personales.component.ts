@@ -4,6 +4,7 @@ import { Cita } from '../cita.model';
 import { LoginServiceService } from 'src/app/login-service.service';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { CodigoqrService } from 'src/app/codigoqr.service';
+import { find } from 'rxjs';
 
 @Component({
   selector: 'app-citas-personales',
@@ -17,13 +18,17 @@ export class CitasPersonalesComponent implements OnInit {
   elementType= NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value="";
+  datos: any;
   muestra:boolean = false; // bandera para mostrar QR
-  xd:number=0;
 
-  constructor(private firebase: FirebaseReservaService, private login:LoginServiceService,private codigoqr:CodigoqrService){}
+  constructor(private firebase: FirebaseReservaService, private login:LoginServiceService,private codigoqr: CodigoqrService){}
 
   ngOnInit(): void {
-    
+    this.cargarCitas();
+  }
+
+
+  cargarCitas():void{
     this.firebase.cargarCita().subscribe((citas) => {
       this.todas = Object.values(citas);
       console.log(this.todas);
@@ -74,15 +79,28 @@ export class CitasPersonalesComponent implements OnInit {
   }
 
   generaQR(cita:Cita):void{
+    let body = {
+      index: this.findCita(cita),
+      usuario: this.login.iduslog()
+    }
 
-    this.codigoqr.recuperaDatos(this.findCita(cita)).then(data =>{
-      console.log(data);
+    this.codigoqr.recuperaDatos(body).then((data) => {
+      this.datos = data;
+
+      this.value = `Nombre: ${this.datos.nombre}\nTelefono: ${this.datos.telefono}\nCita: ${this.datos.fecha}\nPaciente: ${this.datos.paciente}`;
+      this.muestra =true;
+    })
+    .catch((err) => {
+      console.log(err);
     });
+    
   }
 
   borrarCita(cita:Cita):void{
-    this.codigoqr.borrarCita(this.findCita(cita)).then(data =>{
-      console.log(data);
-    });
+    let i = this.findCita(cita);
+    this.firebase.borrarCita(i).subscribe((data) => {
+      console.log("Borrado");
+      this.cargarCitas();
+    })
   }
 }

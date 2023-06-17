@@ -10,11 +10,7 @@ export class CodigoqrService {
 
   constructor(private http: HttpClient) {}
 
-  recuperaDatos(index:any){
-    return this.http.get('http://localhost:3000/api/codigoqr',index).toPromise();
-  }
-
-  borrarCita(index:any){
-    this.http.delete('https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios.json', index).toPromise();
+  recuperaDatos(body:any){
+    return this.http.post('http://localhost:3000/api/codigoqr',body).toPromise();
   }
 }

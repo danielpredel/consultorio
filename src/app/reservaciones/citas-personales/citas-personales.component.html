@@ -39,7 +39,16 @@
                                     </div>
                                     <div class="modal-body">
                                         <div *ngIf="muestra else cargando">
-
+                                            <div class="divQR">
+                                                <ngx-qrcode
+                                                    [elementType]="elementType"
+                                                    [value]="value"
+                                                    [errorCorrectionLevel]="correctionLevel">
+                                                </ngx-qrcode>
+                                            </div>
+                                            <div class="alert alert-primary" role="alert">
+                                                Puedes usar este código QR para acceder a nuestro consultorio
+                                            </div>
                                         </div>
                                         <ng-template #cargando>
                                             <div id="divBtn">
@@ -58,8 +67,34 @@
                             </div>
                         </div>
                     </td>
+
                     <td id="color">
-                        <button type="button" (click)="borrarCita(cita)" class="btn btn-danger">Borrar Cita</button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                            Borrar Cita
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cancelación de Cita</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="alert alert-danger" role="alert">
+                                            ¿Deseas cancelar la cita para el {{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}?
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar</button>
+                                        <button type="button" class="btn btn-danger" (click)="borrarCita(cita)" >Borrar Cita</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>

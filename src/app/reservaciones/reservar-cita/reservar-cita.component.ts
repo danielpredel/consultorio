@@ -10,6 +10,10 @@ import {
 } from '../cita.model';
 
 import * as alertifyjs from 'alertifyjs';
+import { ApiCorreoService } from 'src/app/api-correo.service';
+import { FirebaseReservaService } from '../firebase-reserva.service';
+import { LoginServiceService } from 'src/app/login-service.service';
+import { Usuarios } from '../usuario.model';
 
 @Component({
   selector: 'app-reservar-cita',
@@ -21,8 +25,9 @@ export class ReservarCitaComponent implements OnInit {
   fecha: any;
   fechaString: string | undefined;
   nombre: string = "";
+  usuario: any;
   edad: number = 0;
-  citas:Cita[]=[]
+  correoUsuario: string = "";
   cita: Cita = {
     id: "",
     year: 0,
@@ -39,12 +44,17 @@ export class ReservarCitaComponent implements OnInit {
   horas: any = [];
   horasOcupadas: any = [];
 
-  constructor(private citasService: AlmacenamientoCitasService) {
+  constructor(private citasService: AlmacenamientoCitasService, private correo:ApiCorreoService,
+    private firebase: FirebaseReservaService,private login: LoginServiceService) {
     this.citasService.getCitas();
   }
 
   ngOnInit() {
-    this.cita = this.citasService.nuevaCita();
+    this.cita = this.citasService.nuevaCita(); 
+    this.firebase.getDatosUsuario(this.login.iduslog()).subscribe((data) => {
+      this.usuario = data;
+      this.correoUsuario = this.usuario.email;
+    });
   }
 
   procesaPropagar(mensaje: any) {
@@ -83,13 +93,31 @@ export class ReservarCitaComponent implements OnInit {
     this.cita.diaNombre = this.fecha.diaNombre;
     this.cita.mesNombre = this.fecha.mesNombre;
     this.cita.edad = this.edad;
+    this.enviaCorreo(this.cita);
     this.citasService.agregarCita(this.cita);
     this.cita = this.citasService.nuevaCita();
     this.estadoFecha = false;
     this.nombre = '';
     alertifyjs.alert('Cita Reservada', 'Se ha almacenado tu reservacion en nuestro sistema', function () {
       alertifyjs.success('Reservacion Exitosa');
-    });
+    });    
+  }
+
+  enviaCorreo(cita:Cita):void{
     
+    
+    let body = {
+      correo: this.correoUsuario,
+      asunto: `Nueva Cita Para ${this.usuario.nombre}`,
+      descripcion: `Su cita se ha programado para ${cita.diaNombre} ${cita.dia} de ${cita.mesNombre} del ${cita.year}`
+    };
+    console.log(body);
+
+    this.correo.enviarCorreo("http://localhost:3000/api/correo",body).then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 }
