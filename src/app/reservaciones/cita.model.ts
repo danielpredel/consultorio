@@ -7,5 +7,6 @@ export interface Cita {
     paciente: string,
     diaNombre: string,
     mesNombre: string,
-    edad: number
+    edad: number,
+    doctor: string
 }

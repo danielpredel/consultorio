@@ -1,40 +1,137 @@
 <div class="conte">
-  <form class="formlogin bg-light" #formulario="ngForm">
+  <form class="formlogin bg-light needs-validation" [formGroup]="formularioRegistro"
+    (ngSubmit)="formularioRegistro.status !== 'INVALID' && registrar()" novalidate>
     <div class="row g-3">
+      <h1>Registro</h1>
       <div class="col md-6">
         <div>
+          <label class="form-label" for="nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Nombre">
+            aria-describedby="inputGroup-sizing-default" placeholder="John" formControlName="nombre"
+            [ngClass]="{'is-invalid': getControl('nombre')?.errors  && getControl('nombre')?.touched, 'is-valid':!getControl('nombre')?.errors}">
+          <div *ngIf="getControl('nombre')?.errors?.['required'] && getControl('nombre')?.touched"
+            class="invalid-feedback">
+            Nombre Requerido
+          </div>
+          <div *ngIf="getControl('nombre')?.errors?.['minlength'] && getControl('nombre')?.touched"
+            class="invalid-feedback">
+            Al Menos Tres Caracteres
+          </div>
         </div>
         <br>
         <div>
+          <label class="form-label" for="apellidos">Apellidos</label>
           <input type="text" name="apellidos" id="apellidos" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Apellidos">
+            aria-describedby="inputGroup-sizing-default" placeholder="Doe" formControlName="apellidos"
+            [ngClass]="{'is-invalid': getControl('apellidos')?.errors && getControl('apellidos')?.touched, 'is-valid':!getControl('apellidos')?.errors}">
+          <div *ngIf="getControl('apellidos')?.errors?.['required'] && getControl('apellidos')?.touched"
+            class="invalid-feedback">
+            Apellidos Requeridos
+          </div>
+          <div *ngIf="getControl('apellidos')?.errors?.['minlength'] && getControl('apellidos')?.touched"
+            class="invalid-feedback">
+            Al Menos Tres Caracteres
+          </div>
         </div>
         <br>
         <div>
+          <label class="form-label" for="telefono">Telefono</label>
           <input type="tel" name="telefono" id="telefono" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Telefono">
+            aria-describedby="inputGroup-sizing-default" placeholder="4491234567" formControlName="telefono"
+            [ngClass]="{'is-invalid': getControl('telefono')?.errors && getControl('telefono')?.touched, 'is-valid':!getControl('telefono')?.errors}">
+          <div *ngIf="getControl('telefono')?.errors?.['required'] && getControl('telefono')?.touched"
+            class="invalid-feedback">
+            Telefono Requerido
+          </div>
+          <div *ngIf="getControl('telefono')?.errors?.['minlength'] && getControl('telefono')?.touched"
+            class="invalid-feedback">
+            Longitud Invalida
+          </div>
         </div>
       </div>
       <div class="col md-6">
         <div>
+          <label class="form-label" for="correo">Correo</label>
           <input type="email" name="email" id="email" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Correo Electrónico">
+            aria-describedby="inputGroup-sizing-default" placeholder="correo@email.com" formControlName="correo"
+            [ngClass]="{'is-invalid': getControl('correo')?.errors  && getControl('correo')?.touched, 'is-valid':!getControl('correo')?.errors}">
+          <div *ngIf="getControl('correo')?.errors?.['required'] && getControl('correo')?.touched"
+            class="invalid-feedback">
+            Correo Requerido
+          </div>
+          <div *ngIf="getControl('correo')?.errors?.['email'] && getControl('correo')?.touched"
+            class="invalid-feedback">
+            Formato de Correo Incorrecto
+          </div>
         </div>
         <br>
         <div>
-          <input type="password" name="password1" id="password1" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Contraseña">
+          <label class="form-label" for="password">Contraseña</label>
+          <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="Contraseña" formControlName="password"
+            [ngClass]="{'is-invalid': getControl('password')?.errors  && getControl('password')?.touched, 'is-valid':!getControl('password')?.errors}">
+          <div *ngIf="getControl('password')?.errors?.['required'] && getControl('password')?.touched"
+            class="invalid-feedback">
+            Contraseña Requerida
+          </div>
+          <div *ngIf="getControl('password')?.errors?.['minlength'] && getControl('password')?.touched"
+            class="invalid-feedback">
+            Minimo 8 Caracteres
+          </div>
+          <div *ngIf="getControl('password')?.errors?.['minuscula'] && getControl('password')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos una letra minuscula
+          </div>
+          <div *ngIf="getControl('password')?.errors?.['mayuscula'] && getControl('password')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos una letra mayuscula
+          </div>
+          <div *ngIf="getControl('password')?.errors?.['digito'] && getControl('password')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos un digito
+          </div>
         </div>
         <br>
         <div>
-          <input type="password" name="password2" id="password2" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" ngModel placeholder="Confirmar Contraseña">
+          <label class="form-label" for="confirmacionPassword">Confirmar Contraseña</label>
+          <input type="password" name="confirmacionPassword" id="confirmacionPassword" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+            placeholder="Confirmar Contraseña" formControlName="confirmacionPassword"
+            [ngClass]="{'is-invalid': getControl('confirmacionPassword')?.errors  && getControl('confirmacionPassword')?.touched || formularioRegistro.errors?.['passwordMismatchError'], 'is-valid':!getControl('confirmacionPassword')?.errors}">
+          <div
+            *ngIf="getControl('confirmacionPassword')?.errors?.['required'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Valida Tu Contraseña
+          </div>
+          <div
+            *ngIf="getControl('confirmacionPassword')?.errors?.['minlength'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Minimo 8 Caracteres
+          </div>
+          <div
+            *ngIf="getControl('confirmacionPassword')?.errors?.['minuscula'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos una letra minuscula
+          </div>
+          <div
+            *ngIf="getControl('confirmacionPassword')?.errors?.['mayuscula'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos una letra mayuscula
+          </div>
+          <div
+            *ngIf="getControl('confirmacionPassword')?.errors?.['digito'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Debe contener almenos un digito
+          </div>
+          <div
+            *ngIf="formularioRegistro.errors?.['passwordMismatchError'] && getControl('confirmacionPassword')?.touched"
+            class="invalid-feedback">
+            Las Contraseñas no Coinciden
+          </div>
         </div>
       </div>
       <div class="d-grid gap-2">
-        <button class="btn btn-info" (click)="registro(formulario)">Registrar</button>
+        <button class="btn btn-info" [disabled]="formularioRegistro.invalid">Registrar</button>
       </div>
     </div>
   </form>

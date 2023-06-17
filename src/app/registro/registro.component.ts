@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { ValidacionesPersonalizadas } from '../validaciones-personalizadas';
+import { passwordMatch } from '../passwordMatch';
 
 @Component({
   selector: 'app-registro',
@@ -8,15 +10,35 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-  constructor(private loginservice: LoginServiceService) {
-
+  registro: any = {
+    nombre: '',
+    apellidos: '',
+    telefono: '',
+    correo: '',
+    password: '',
+    confirmacionPassword: ''
   }
-  registro(form: NgForm) {
-    const nombre = form.value.nombre;
-    const apellidos = form.value.apellidos;
-    const telefono = form.value.telefono;
-    const email = form.value.email;
-    const password = form.value.password1;
-    this.loginservice.registro(nombre, apellidos, telefono, email, password);
+  formularioRegistro = new FormGroup({
+    nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    apellidos: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    correo: new FormControl('', [Validators.required, Validators.email]),
+    telefono: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8), ValidacionesPersonalizadas.minuscula, ValidacionesPersonalizadas.mayuscula, ValidacionesPersonalizadas.digito]),
+    confirmacionPassword: new FormControl('', [Validators.required, Validators.minLength(8), ValidacionesPersonalizadas.minuscula, ValidacionesPersonalizadas.mayuscula, ValidacionesPersonalizadas.digito])
+  }, [passwordMatch("password", "confirmacionPassword")]);
+
+  constructor(private loginservice: LoginServiceService) {}
+
+  getControl(name: any): AbstractControl | null {
+    return this.formularioRegistro.get(name);
+  }
+
+  registrar() {
+      const nombre = this.formularioRegistro.value.nombre;
+      const apellidos = this.formularioRegistro.value.apellidos;
+      const telefono = this.formularioRegistro.value.telefono;
+      const email = this.formularioRegistro.value.correo;
+      const password = this.formularioRegistro.value.password;
+      this.loginservice.registro(nombre, apellidos, telefono, email, password);
   }
 }
