@@ -24,12 +24,14 @@ export class FirebaseReservaService {
 
     );
   }
+
   buscarnum(numero:string){
     return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios.json?orderBy=%22telefono%22&equalTo=%22"+numero+"%22")
   }
   vernom(quien:string){
     return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios/"+quien+"/nombre.json");
   }
+
   citasde(quien:string){
     console.log("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22id%22&equalTo=%22"+quien+"%22")
     //return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22id%22&equalTo="+quien);

@@ -1,0 +1,74 @@
+<div class="container mt-3 min-altura">
+    <div *ngIf="citas else noCitas">
+        <h1>Citas Reservadas</h1>
+        <table class="table table-info table-striped">
+            <thead>
+                <tr>
+                    <th id="color" scope="col">ID Cita</th>
+                    <th id="color" scope="col">Nombre</th>
+                    <th id="color" scope="col">Edad</th>
+                    <th id="color" scope="col">Fecha</th>
+                    <th id="color" scope="col">Hora</th>
+                    <th id="color" scope="col">Código QR</th>
+                    <th id="color" scope="col">Cancelar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let cita of citas; let i = index">
+                    <td id="color">{{ i }}</td>
+                    <td id="color">{{ cita.paciente }}</td>
+                    <td id="color">{{ cita.edad }}</td>
+                    <td id="color">{{ cita.diaNombre }} {{ cita.dia }} de {{ cita.mesNombre }} del {{ cita.year }}</td>
+                    <td id="color" [innerHTML]="cita.hora + ':00 - ' + (cita.hora + 1) + ':00'"></td>
+                    <td id="color">
+                        <!-- Button trigger modal -->
+                        <button type="button" (click)="generaQR(cita)" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Generar QR
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Código QR Para Tu Cita</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div *ngIf="muestra else cargando">
+
+                                        </div>
+                                        <ng-template #cargando>
+                                            <div id="divBtn">
+                                                <button id="btn" class="btn btn-primary" type="button" disabled>
+                                                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                                  Cargando...
+                                                </button>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td id="color">
+                        <button type="button" (click)="borrarCita(cita)" class="btn btn-danger">Borrar Cita</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #noCitas>
+    <div class="alert alert-danger " role="alert">
+        No tienes citas por el momento
+    </div>
+</ng-template>

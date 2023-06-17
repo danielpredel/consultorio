@@ -12,6 +12,8 @@ import {
 } from './citas-reservadas/citas-reservadas.component';
 import { FormsModule } from '@angular/forms';
 import { CalendarioComponent } from './calendario/calendario.component';
+import { CitasPersonalesComponent } from './citas-personales/citas-personales.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
@@ -19,11 +21,13 @@ import { CalendarioComponent } from './calendario/calendario.component';
   declarations: [
     ReservarCitaComponent,
     CitasReservadasComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    CitasPersonalesComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxQRCodeModule,
   ],
   exports: [
     ReservarCitaComponent, 

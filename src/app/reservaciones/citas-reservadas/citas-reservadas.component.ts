@@ -1,30 +1,23 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  Cita
-} from '../cita.model';
-import {
-  AlmacenamientoCitasService
-} from '../almacenamiento-citas.service';
+import { Component, OnInit } from '@angular/core';
+import { Cita } from '../cita.model';
 import { FirebaseReservaService } from '../firebase-reserva.service';
 
 @Component({
   selector: 'app-citas-reservadas',
   templateUrl: './citas-reservadas.component.html',
-  styleUrls: ['./citas-reservadas.component.css']
+  styleUrls: ['./citas-reservadas.component.css'],
 })
 export class CitasReservadasComponent implements OnInit {
   citas: Cita[] = [];
 
-  constructor(private citasService: AlmacenamientoCitasService,private guardafire:FirebaseReservaService) {}
+  constructor(
+    private guardafire: FirebaseReservaService
+  ) {}
 
   ngOnInit() {
-    
-     this.guardafire.cargarCita().subscribe(citas=>{
+    this.guardafire.cargarCita().subscribe((citas) => {
       console.log(citas);
-      this.citas=Object.values(citas);
+      this.citas = Object.values(citas);
     });
     this.citas.sort((a, b) => {
       if (a.year < b.year) {
@@ -52,7 +45,7 @@ export class CitasReservadasComponent implements OnInit {
       }
     });
   }
-  async sleep(seconds:number){
-    return new Promise((resolve)=>setTimeout(resolve,seconds*1000));
-}  
+  async sleep(seconds: number) {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+  }
 }
