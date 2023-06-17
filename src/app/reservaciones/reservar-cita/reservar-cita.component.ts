@@ -10,6 +10,7 @@ import {
 } from '../cita.model';
 
 import * as alertifyjs from 'alertifyjs';
+import { LoginServiceService } from 'src/app/login-service.service';
 
 @Component({
   selector: 'app-reservar-cita',
@@ -32,15 +33,18 @@ export class ReservarCitaComponent implements OnInit {
     paciente: '',
     diaNombre: '',
     mesNombre: '',
-    edad: 0
+    edad: 0,
+    doctor: ''
   };
   citasFechaSeleccionada: Cita[] = [];
   selectedOption: number = 0;
   horas: any = [];
   horasOcupadas: any = [];
+  doctor: any = null;
 
-  constructor(private citasService: AlmacenamientoCitasService) {
+  constructor(private citasService: AlmacenamientoCitasService, private loginService: LoginServiceService) {
     this.citasService.getCitas();
+    this.nombre = this.loginService.vnom();
   }
 
   ngOnInit() {
@@ -80,6 +84,7 @@ export class ReservarCitaComponent implements OnInit {
     this.cita.dia = this.fecha.dia;
     this.cita.hora = this.horas[this.selectedOption];
     this.cita.paciente = this.nombre;
+    this.cita.doctor = this.doctor;
     this.cita.diaNombre = this.fecha.diaNombre;
     this.cita.mesNombre = this.fecha.mesNombre;
     this.cita.edad = this.edad;

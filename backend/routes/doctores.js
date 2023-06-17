@@ -83,7 +83,8 @@ router.get('/', function (req, res, next) {
             correo: 'emilionavarro@gmail.com',
             edad: 49,
             sexo: 'Masculino',
-            foto: 'https://media.istockphoto.com/id/1203995945/es/foto/retrato-de-hombre-maduro-doctor-que-lleva-abrigo-blanco-de-pie-en-el-pasillo-del-hospital.jpg?s=612x612&w=0&k=20&c=TLFMEYbqmt5noGITcY6PRgaX4MfmfE2TYXehgiCDDuk='},
+            foto: 'https://media.istockphoto.com/id/1203995945/es/foto/retrato-de-hombre-maduro-doctor-que-lleva-abrigo-blanco-de-pie-en-el-pasillo-del-hospital.jpg?s=612x612&w=0&k=20&c=TLFMEYbqmt5noGITcY6PRgaX4MfmfE2TYXehgiCDDuk='
+        },
         {
             nombre: 'Santiago',
             apellido: 'Morales',

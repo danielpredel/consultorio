@@ -71,7 +71,8 @@ export class AlmacenamientoCitasService   {
       paciente: '',
       diaNombre: '',
       mesNombre: '',
-      edad: 0
+      edad: 0,
+      doctor: ''
     };
   }
 
