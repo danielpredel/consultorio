@@ -12,6 +12,7 @@ import { SMSMComponent } from './smsm/smsm.component';
 import { RegistroComponent } from './registro/registro.component';
 import { GraficaComponent } from './grafica/grafica.component';
 import { InfoContactoComponent } from './info-contacto/info-contacto.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'grafica', component: GraficaComponent},
   { path: 'phone-login', component: SMSMComponent},
   { path: 'registro', component: RegistroComponent},
+  { path: 'preguntas', component: PreguntasComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }
 ];
 

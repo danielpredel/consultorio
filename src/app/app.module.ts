@@ -85,7 +85,8 @@ import {
 import { GraficaComponent } from './grafica/grafica.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { InfoContactoComponent } from './info-contacto/info-contacto.component';
-
+import { CookieService } from 'ngx-cookie-service';
+import { PreguntasComponent } from './preguntas/preguntas.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { InfoContactoComponent } from './info-contacto/info-contacto.component';
     SMSMComponent,
     RegistroComponent,
     GraficaComponent,
-    InfoContactoComponent
+    InfoContactoComponent,
+    PreguntasComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +126,7 @@ import { InfoContactoComponent } from './info-contacto/info-contacto.component';
       registrationStrategy: 'registerWhenStable:30000'
     }),
   ],
-  providers: [MedicosService, LoginServiceService, MedicamentosService],
+  providers: [MedicosService, LoginServiceService, MedicamentosService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
