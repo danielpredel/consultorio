@@ -62,7 +62,9 @@ export class ReservarCitaComponent implements OnInit {
     this.citasFechaSeleccionada.forEach((element: {
       hora: any;
     }) => {
-      this.horasOcupadas.push(element.hora);
+      if(element != null){
+        this.horasOcupadas.push(element.hora);
+      }
     });
     if (this.horasOcupadas.length > 0) {
       for (let i = 8; i < 20; i++) {
@@ -70,7 +72,8 @@ export class ReservarCitaComponent implements OnInit {
           this.horas.push(i);
         }
       }
-    } else {
+    } 
+    else {
       for (let i = 8; i < 20; i++) {
         this.horas.push(i);
       }
@@ -88,10 +91,14 @@ export class ReservarCitaComponent implements OnInit {
     this.cita.diaNombre = this.fecha.diaNombre;
     this.cita.mesNombre = this.fecha.mesNombre;
     this.cita.edad = this.edad;
-    this.citasService.agregarCita(this.cita);
+    this.citasService.setNuevaCitaDB(this.cita);
+    // this.citasService.agregarCita(this.cita);
     this.cita = this.citasService.nuevaCita();
     this.estadoFecha = false;
-    this.nombre = '';
+    // this.nombre = '';
+    this.doctor = '';
+    this.edad = 0;
+    this.horas = [];
     alertifyjs.alert('Cita Reservada', 'Se ha almacenado tu reservacion en nuestro sistema', function () {
       alertifyjs.success('Reservacion Exitosa');
     });

@@ -1,0 +1,103 @@
+{
+  "configVersion": 1,
+  "timestamp": 1687040153970,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.819ebf548fac3b38.js",
+        "/manifest.webmanifest",
+        "/polyfills.64193aed1524f61f.js",
+        "/runtime.8a49cc4c6f454e1e.js",
+        "/scripts.163a43b95008f904.js",
+        "/styles.20c4e19ff700c2fd.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/ConsultorioFondo.e8ee4a51980c9bb3.jpg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/Andrew.jpg",
+        "/assets/img/ConsultorioFondo.jpg",
+        "/assets/img/Daniel.jpeg",
+        "/assets/img/Icono.jpeg",
+        "/assets/img/Josue.jpg",
+        "/assets/img/Kevin.jpg",
+        "/assets/img/Uziel.jpeg",
+        "/assets/img/Victor.jpg",
+        "/assets/medicamentos.json"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/ConsultorioFondo.e8ee4a51980c9bb3.jpg": "37a415668ff2cb0631a5ede82cca05a63933a7b4",
+    "/assets/icons/icon-128x128.png": "363311d671c0dd666d7b22d82c89b646bf0cd9c1",
+    "/assets/icons/icon-144x144.png": "b169f9f841508962245c131450d25bc8efc1bddd",
+    "/assets/icons/icon-152x152.png": "982898bc8df9672002ba60880a74da037ddd980d",
+    "/assets/icons/icon-192x192.png": "df38cb2ecacafc01f8dc245fe224d30e3b849366",
+    "/assets/icons/icon-384x384.png": "3c5c06129a9a6ca0b0e5cc6cfeffb3b31f797702",
+    "/assets/icons/icon-512x512.png": "14a3b40bb7659d0ddb448aaca49e69830763a486",
+    "/assets/icons/icon-72x72.png": "95ba80b2d73ac6d21e6d35df44d1dd350bb8b479",
+    "/assets/icons/icon-96x96.png": "8e2299b4b702e50c9144c2e5f43aa091b1109337",
+    "/assets/img/Andrew.jpg": "8a4fd89d7dc533cd2f8ec0ad622c0b02fb22f1ad",
+    "/assets/img/ConsultorioFondo.jpg": "37a415668ff2cb0631a5ede82cca05a63933a7b4",
+    "/assets/img/Daniel.jpeg": "f3aad4320b5644cb515c34a4c3a6579fc4acfedc",
+    "/assets/img/Icono.jpeg": "cb5dab3a165478404842140f7635a5438e7cebd4",
+    "/assets/img/Josue.jpg": "1dfe27a84b82d7e8bd6a6bfd2ec59ec11335d531",
+    "/assets/img/Kevin.jpg": "4c25f747d8357a36312cc304d4dbd96faa270aed",
+    "/assets/img/Uziel.jpeg": "52fa60bc6c7cfe0d8fd12587e757f53fb1677714",
+    "/assets/img/Victor.jpg": "c570693e247a310c2e65e996b8494e9e79bd5b53",
+    "/assets/medicamentos.json": "0dbf02c82ea3943b36f96461977719752fa6c381",
+    "/favicon.ico": "3f970d3c9ae461cc41ea2b2426b3796c454f082b",
+    "/index.html": "d96eadf74e6c8e3ae55077c13a18bfa87386548c",
+    "/main.819ebf548fac3b38.js": "fe5d5e54d40ac3fdc8bf1c73aab7fcd01a087f53",
+    "/manifest.webmanifest": "3a12b03d42b56a2ef1584bbdb711b659ab140bc3",
+    "/polyfills.64193aed1524f61f.js": "24bc50c20e3097207bbc81831493a59e1a25a508",
+    "/runtime.8a49cc4c6f454e1e.js": "301aa0cce11c22292f8cd559a044e2e397597cf2",
+    "/scripts.163a43b95008f904.js": "824c9fb8cc05c44d11dae354d3a66b1c69b903bd",
+    "/styles.20c4e19ff700c2fd.css": "3cf2565b77a9dbe7dff5d6c4cbef404ec1b39694"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

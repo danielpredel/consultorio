@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { Cita } from './cita.model';
 import { LoginServiceService } from '../login-service.service';
 import { Usuarios } from './usuario.model';
+import {
+  getDatabase,
+  ref,
+  set
+} from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -63,4 +68,26 @@ export class FirebaseReservaService {
   cargarDiciembre(){
     return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/citas.json?orderBy=%22mesNombre%22&equalTo=%22Diciembre%22")
   }
+
+  
+
+  // // Nuevo Metodo Insercion De citas
+  // setNuevaCitaDB(){
+  //   let randomID = '1209821n2198c84s0104812384b234';
+  //   let nuevaCita: Cita = {
+  //     id: 'udnakda98dabhjkas8f7asf',
+  //     year: 2023,
+  //     mes: 7,
+  //     dia: 17,
+  //     hora: 9,
+  //     paciente: 'Daniel',
+  //     diaNombre: 'Martes',
+  //     mesNombre: 'Julio',
+  //     edad: 23,
+  //     doctor: 'Meredith Gray'
+  //   }
+  
+  //   var database = getDatabase();
+  //     set(ref(database, 'Citas/' + randomID), nuevaCita);
+  // }
 }
