@@ -44,15 +44,16 @@
           </li>
         </ng-container>
         <ng-container *ngIf="estalogeado()">
-          
-          
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link active" aria-current="page" (click)="logout()">Logout</a>
           </li>
           <br><br><br>
           <ng-container *ngIf="nombrev()">
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link active" aria-current="page" >Hola bienvenid@: {{nombre}}</a>
+              <a class="nav-link active" aria-current="page" >Hola, {{nombre}}</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link active" aria-current="page" [routerLink]="['/citas-personales']">Mis Citas</a>
             </li>
           </ng-container>
         </ng-container>

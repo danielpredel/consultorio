@@ -8,6 +8,7 @@ var logger = require('morgan');
 var doctoresRouter = require('./routes/doctores');
 var medicinasRouter = require('./routes/medicinas');
 var correoRouter = require('./routes/correo');
+var qrRouter = require('./routes/codigoqr');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/doctores', doctoresRouter);
 app.use('/api/medicinas', medicinasRouter);
 app.use('/api/correo', correoRouter);
+app.use('/api/codigoqr', qrRouter);
 
 // Rutas virtuales de Angular
 app.use('/*', function(req, res) {

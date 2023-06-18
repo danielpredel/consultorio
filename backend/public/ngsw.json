@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1687040153970,
+  "timestamp": 1687052395439,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.819ebf548fac3b38.js",
+        "/main.92a92650a6a8fa54.js",
         "/manifest.webmanifest",
         "/polyfills.64193aed1524f61f.js",
         "/runtime.8a49cc4c6f454e1e.js",
@@ -73,8 +73,8 @@
     "/assets/img/Victor.jpg": "c570693e247a310c2e65e996b8494e9e79bd5b53",
     "/assets/medicamentos.json": "0dbf02c82ea3943b36f96461977719752fa6c381",
     "/favicon.ico": "3f970d3c9ae461cc41ea2b2426b3796c454f082b",
-    "/index.html": "d96eadf74e6c8e3ae55077c13a18bfa87386548c",
-    "/main.819ebf548fac3b38.js": "fe5d5e54d40ac3fdc8bf1c73aab7fcd01a087f53",
+    "/index.html": "b13e7ff65e7feef9f0473405e5400800532ae012",
+    "/main.92a92650a6a8fa54.js": "6a1d829a38da3addce909ecb6bd5c3cb028708f1",
     "/manifest.webmanifest": "3a12b03d42b56a2ef1584bbdb711b659ab140bc3",
     "/polyfills.64193aed1524f61f.js": "24bc50c20e3097207bbc81831493a59e1a25a508",
     "/runtime.8a49cc4c6f454e1e.js": "301aa0cce11c22292f8cd559a044e2e397597cf2",

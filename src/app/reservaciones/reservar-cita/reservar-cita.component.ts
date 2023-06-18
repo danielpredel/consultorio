@@ -10,6 +10,8 @@ import {
 } from '../cita.model';
 
 import * as alertifyjs from 'alertifyjs';
+import { ApiCorreoService } from 'src/app/api-correo.service';
+import { FirebaseReservaService } from '../firebase-reserva.service';
 import { LoginServiceService } from 'src/app/login-service.service';
 
 @Component({
@@ -22,8 +24,9 @@ export class ReservarCitaComponent implements OnInit {
   fecha: any;
   fechaString: string | undefined;
   nombre: string = "";
+  usuario: any;
   edad: number = 0;
-  citas:Cita[]=[]
+  correoUsuario: string = "";
   cita: Cita = {
     id: "",
     year: 0,
@@ -42,13 +45,18 @@ export class ReservarCitaComponent implements OnInit {
   horasOcupadas: any = [];
   doctor: any = null;
 
-  constructor(private citasService: AlmacenamientoCitasService, private loginService: LoginServiceService) {
+  constructor(private citasService: AlmacenamientoCitasService, private correo:ApiCorreoService,
+    private firebase: FirebaseReservaService,private login: LoginServiceService) {
     this.citasService.getCitas();
-    this.nombre = this.loginService.vnom();
+    this.nombre = this.login.vnom();
   }
-
+  
   ngOnInit() {
-    this.cita = this.citasService.nuevaCita();
+    this.cita = this.citasService.nuevaCita(); 
+    this.firebase.getDatosUsuario(this.login.iduslog()).subscribe((data) => {
+      this.usuario = data;
+      this.correoUsuario = this.usuario.email;
+    });
   }
 
   procesaPropagar(mensaje: any) {
@@ -92,16 +100,32 @@ export class ReservarCitaComponent implements OnInit {
     this.cita.mesNombre = this.fecha.mesNombre;
     this.cita.edad = this.edad;
     this.citasService.setNuevaCitaDB(this.cita);
-    // this.citasService.agregarCita(this.cita);
+    this.enviaCorreo(this.cita);
     this.cita = this.citasService.nuevaCita();
     this.estadoFecha = false;
-    // this.nombre = '';
     this.doctor = '';
     this.edad = 0;
     this.horas = [];
     alertifyjs.alert('Cita Reservada', 'Se ha almacenado tu reservacion en nuestro sistema', function () {
       alertifyjs.success('Reservacion Exitosa');
-    });
+    });    
+  }
+
+  enviaCorreo(cita:Cita):void{
     
+    
+    let body = {
+      correo: this.correoUsuario,
+      asunto: `Nueva Cita Para ${this.usuario.nombre}`,
+      descripcion: `Su cita se ha programado para ${cita.diaNombre} ${cita.dia} de ${cita.mesNombre} del ${cita.year}`
+    };
+    console.log(body);
+
+    this.correo.enviarCorreo("https://consultorio.fly.dev/api/correo",body).then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 }

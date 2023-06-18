@@ -13,6 +13,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { GraficaComponent } from './grafica/grafica.component';
 import { InfoContactoComponent } from './info-contacto/info-contacto.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
+import { CitasPersonalesComponent } from './reservaciones/citas-personales/citas-personales.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'phone-login', component: SMSMComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'preguntas', component: PreguntasComponent},
+  { path: 'citas-personales', component: CitasPersonalesComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'InicioComponent' }
 ];
 

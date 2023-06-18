@@ -11,15 +11,16 @@ function conectionEmail() {
 }
 
 function CrearMensaje(correo, asunto, descripcion) {
-  descripcionMen="Recibimos su mensaje, Consultorio Don Julio le atenderá lo antes posible!";
+  descripcionMen="Consultorio Don Julio le atenderá lo antes posible!";
   return (mensaje = {
     from: "Consultorio Don Julio",
     to: correo,
     subject: asunto,
     text: descripcionMen,
-    html: "<h1>" + asunto + "</h1><p>" + descripcionMen + "</p>",
+    html: "<h1>" + asunto + "</h1><p>"+ descripcion +", "+ descripcionMen + "</p>",
   });
 }
+
 function CrearMensajeAdmin(correo, asunto, descripcion) {
   asuntoAdm= "NUEVO MENSAJE: "+asunto;
   descripcionAdm="Recibio un correo de: "+correo+ " con el siguiente mensaje: " +descripcion;
