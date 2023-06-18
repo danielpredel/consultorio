@@ -41,7 +41,7 @@ export class FirebaseReservaService {
     return this.httpClient.get("https://consultorio-3f786-default-rtdb.firebaseio.com/Usuarios/"+quien+"/.json");
   }
 
-  borrarCita(index:number){
+  borrarCita(index:string){
     return this.httpClient.delete("https://consultorio-3f786-default-rtdb.firebaseio.com/citas/"+index+"/.json");
   }
 

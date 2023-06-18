@@ -19,6 +19,7 @@ export class CitasPersonalesComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value="";
   datos: any;
+  claves:any;
   muestra:boolean = false; // bandera para mostrar QR
 
   constructor(private firebase: FirebaseReservaService, private login:LoginServiceService,private codigoqr: CodigoqrService){}
@@ -30,8 +31,10 @@ export class CitasPersonalesComponent implements OnInit {
 
   cargarCitas():void{
     this.firebase.cargarCita().subscribe((citas) => {
+      this.claves = Object.keys(citas);
       this.todas = Object.values(citas);
       console.log(this.todas);
+      console.log(this.claves);
     });
 
     this.firebase.citasde(this.login.iduslog()).subscribe((citas) => {
@@ -69,7 +72,9 @@ export class CitasPersonalesComponent implements OnInit {
 
   findCita(cita:Cita):number{
     let cont = 0;
+
     for (const i of this.todas) {
+      console.log(i);
       if(i.dia == cita.dia && i.hora == cita.hora && i.id == cita.id && i.mesNombre == cita.mesNombre)
         break;
       
@@ -79,15 +84,19 @@ export class CitasPersonalesComponent implements OnInit {
   }
 
   generaQR(cita:Cita):void{
+    let i = this.findCita(cita);
+
     let body = {
-      index: this.findCita(cita),
+      index: this.claves[i],
       usuario: this.login.iduslog()
     }
+    console.log(body);
 
-    this.codigoqr.recuperaDatos(body).then((data) => {
+    this.codigoqr.recuperaDatos(body).then((data:any) => {
       this.datos = data;
-
-      this.value = `Nombre: ${this.datos.nombre}\nTelefono: ${this.datos.telefono}\nCita: ${this.datos.fecha}\nPaciente: ${this.datos.paciente}`;
+      console.log(data);
+      console.log(this.datos);
+      this.value = `Nombre: ${this.datos.nombre}\nTelefono: ${this.datos.telefono}\nCita: ${this.datos.fecha}\nDoctor: ${this.datos.doctor}`;
       this.muestra =true;
     })
     .catch((err) => {
@@ -98,7 +107,8 @@ export class CitasPersonalesComponent implements OnInit {
 
   borrarCita(cita:Cita):void{
     let i = this.findCita(cita);
-    this.firebase.borrarCita(i).subscribe((data) => {
+
+    this.firebase.borrarCita(this.claves[i]).subscribe((data) => {
       console.log("Borrado");
       this.cargarCitas();
     })
