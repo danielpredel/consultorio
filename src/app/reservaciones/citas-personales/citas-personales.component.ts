@@ -74,7 +74,6 @@ export class CitasPersonalesComponent implements OnInit {
     let cont = 0;
 
     for (const i of this.todas) {
-      console.log(i);
       if(i.dia == cita.dia && i.hora == cita.hora && i.id == cita.id && i.mesNombre == cita.mesNombre)
         break;
       
@@ -90,7 +89,6 @@ export class CitasPersonalesComponent implements OnInit {
       index: this.claves[i],
       usuario: this.login.iduslog()
     }
-    console.log(body);
 
     this.codigoqr.recuperaDatos(body).then((data:any) => {
       this.datos = data;
